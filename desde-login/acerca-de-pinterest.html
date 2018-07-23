@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>¿Qué es Pinterest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilos-acerca-de-pinterest.css">
+    <link rel="shortcut icon" href="../img/login/favicon.png" type="image/x-icon">
+</head>
+<body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"> <img src="../img/login/favicon.png" alt="">¿Qué es Pinterest?</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="../index.html">Únete a Pinterest<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Botón para navegador</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Empleos</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    <div>
+        <div id="fondo">
+            <div id="contenido">
+              <div id="texto-pag">
+                Reconoces una gran idea en cuanto la ves.
+              </div>
+              <button type="button" onclick="location.href='../index.html';">Únete a Pinterest</button>
+            </div>
+            </div>
+    </div>
+
+    <div id="footer" style="width: 100%; padding-top: 50px;" >
+        <table style="width: 100% ">
+          <tr>
+            <td>
+              <a href="../index.html">
+                <div >
+                  <img style="height: 50px; margin: 70px;" src="../img/acerca-de-pinterest/pinterest-footer-logo.png">
+              </div>
+              </a>
+              <div >
+                  <select style="width: 25%; margin-left: 100px;" class="form-control" >
+                    <option>Español</option>
+                    <option>Inglés</option>
+                    <option>Francés</option>
+                    <option>Italiano</option>
+                    <option>Alemán</option>
+                  </select>
+                </div>
+            </td>
+            <td>
+                <td>
+                  <strong onclick="ocultarMostrar('acerca-de-nosotros');">Acerca de Nosotros</strong>
+                  <ul class="listas-bonitas" id="acerca-de-nosotros">
+                    <li> <a href="#">Qué es Pinterest</a></li>
+                    <li><a href="#">Nuestra página de Pinterest</a></li>
+                    <li><a href="#">Blog de ingeniería</a></li>
+                    <li><a href="#">Directrices de la marca</a></li>
+                    <li><a href="#">Empleos</a></li>
+                    <li><a href="#">Centro de asistencia</a></li>
+                    <li><a href="#">Pinterest Labs</a></li>
+                  </ul>
+                </td>
+                <td>
+                  <div>
+                    <strong onclick="ocultarMostrar('nuestras-politicas');">Nuestras politicas</strong>
+                    <ul class="listas-bonitas" id="nuestras-politicas">
+                      <li> <a href="#">Copyright & marca</a></li>
+                      <li><a href="#">Anuncios personalizados</a></li>
+                      <li><a href="#">Condiciones del servicio</a></li>
+                      <li><a href="#">Privacidad & cookies</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <strong onclick="ocultarMostrar('mas-informacion');" >Más información</strong>
+                    <ul class="listas-bonitas" id="mas-informacion">
+                      <li> <a href="#">Para empresas</a></li>
+                      <li><a href="#">Para desarrolladoress</a></li>
+                      <li><a href="#">Para la prensa</a></li>
+                    </ul>
+                  </div>
+                </td> 
+            </td>
+          </tr>
+        </table>
+    </div>
+
+    <script src="../js/acerca-de-pinterest.js"></script>
+</body>
+</html>
