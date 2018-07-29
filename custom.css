@@ -1,0 +1,180 @@
+body {
+    /*font-family: "Helvetica Neue", "Helvetica", "ヒラギノ角ゴ Pro W3", 
+    "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", arial, sans-serif;
+    color: rgb(240, 235, 235);
+    font-size: 12px;*/
+}
+
+.letraNav{
+    
+    color:#B5B5B5;
+    font-size: 16px;
+    font-weight: 700;
+    border: 0;
+    vertical-align: middle;
+    box-shadow: #B5B5B5;
+    line-height: 1.2px;
+    
+    
+}
+
+.btn-danger{
+
+    border-radius: 50px;
+    position: fixed;
+    border: 0px;
+    margin: 0px;
+    right: 75px
+
+    
+}
+
+.fa-comment-dots{
+    color: #B5B5B5;
+    font-size: 24px;
+    
+}
+
+.fa-bell{
+    color: #B5B5B5;
+    font-size: 24px;
+}
+.fa-ellipsis-h{
+    color: #B5B5B5;
+    font-size: 24px;
+}
+
+.fa-search{
+    color: #B5B5B5;
+    font-size: 24px;
+    text-align: center;
+}
+
+#header-pint{
+    background-color: white;
+    padding: 0px 30px;
+    border-bottom-color: black;
+    border-bottom-width: 10px;
+    height: 70px;
+    box-sizing: border-box;
+}
+
+.form-control{
+    background-color:  #EFEFEF;
+    width: 100%;
+    padding: 0 10px;
+    margin-right: 0px;
+    border-color: transparent;
+}
+
+#txt-buscar{
+    background-color:  transparent;
+    width: 100%;
+    padding: 8px 8px;
+    margin-right: 0px;
+    border-color: transparent;
+}
+
+#txt-buscar input{
+    width: 50px;
+    background-color:  #EFEFEF;
+    border-width: 0;
+    padding: 25px 0;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+ 
+input:focus{
+    border-color: #EFEFEF;
+    border-radius: 6px;
+}
+
+
+.rounded-circle{
+    border-color: transparent
+}
+
+.rounded-circle{
+    border-color: transparent
+}
+
+.aa{
+    vertical-align: middle;
+    width: auto;
+}
+
+.fas{
+    color: rgb(194, 194, 194)
+}
+
+.faz{
+    font-size: 30px !important;
+}
+
+#input-navbar{
+    box-sizing: border-box;
+    padding: 0px 5px;
+    padding-right: 0px;
+    background-color: #EFEFEF;
+    width: auto;
+    flex: 1 0 auto;
+    margin-bottom: 0 !important;
+    border-radius: 6PX;
+}
+
+hr{
+    margin: 0px;
+    width: 100%;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 18px;
+    font-weight: bold;
+}
+input::-moz-placeholder {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.navbar{
+    box-sizing: border-box;
+    height: 70px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    background-color: #FFFFFF !important;
+}
+
+.fa-pinterest{
+    color: #bd081c;
+    background-color: transparent;
+}
+
+.btn-light{
+    display: block;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    background: transparent;
+    outline: none;
+}
+
+.columna{
+    max-width: 20%;
+}
+
+@media screen and (max-width: 992px) {
+    .columna {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .columna {
+        width: 100%;
+    }
+}
+
+.card{
+    border-radius: 6px;
+    border: 0;
+}
