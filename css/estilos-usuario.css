@@ -1,10 +1,11 @@
 #header-pint{
     background-color: white;
-    padding: 0px 30px;
+    padding: 0px 10px;
     border-bottom-color: black;
     border-bottom-width: 10px;
     height: 70px;
     box-sizing: border-box;
+    min-width: 400px;
 }
 
 .form-control{
@@ -16,9 +17,12 @@
 }
 
 #txt-buscar{
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 20px;
     background-color:  transparent;
     width: 250px;
-    padding: 8px 80px;
+    padding: 0px 80px;
     margin-right: 0px;
     border-color: transparent;
 }
@@ -27,7 +31,7 @@
     width: 50px;
     background-color:  #EFEFEF;
     border-width: 0;
-    padding: 25px 0;
+    padding: 15px 0;
     box-sizing: border-box;
     border-radius: 6px;
 }
@@ -43,7 +47,7 @@ input:focus{
     text-align: center;
     padding: 10px;
     border-radius: 999px;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 700;
     color: rgb(138, 129, 129);
     cursor: pointer;
@@ -63,16 +67,17 @@ input:focus{
 }
 
 .fas{
-    color: rgb(194, 194, 194)
+    color: rgb(145, 145, 145)
 }
 
 .faz{
-    font-size: 30px !important;
+    font-size: 20px !important;
 }
 
 #input-navbar{
+    margin-left: 15px;
     box-sizing: border-box;
-    padding: 0px 40px;
+    padding: 0px 15px;
     padding-right: 0px;
     background-color: #EFEFEF;
     min-width: 200px;
@@ -99,8 +104,11 @@ input::-moz-placeholder {
 #botones-navbar{
     height: 70px;
     box-sizing: border-box;
-    max-width: 460px;
     min-width: 450px;
+    max-width: 350px;
+    padding-left: 10px;
+    padding-right: 0;
+    font-size: 15px;
 }
 
 .navbar{
@@ -108,4 +116,48 @@ input::-moz-placeholder {
     height: 70px;
     padding-bottom: 0px;
     padding-top: 0px;
+    flex: 1 1 auto;
+}
+
+.ocultar{
+    
+}
+
+.mostrar{
+    display: none;
+}
+
+
+@media screen and (max-width: 881px){
+    .ocultar{
+        display: none;
+    }
+    .mostrar{
+        display: block;
+    }
+    .a12{
+        max-width: 50px;
+    }
+
+    #botones-navbar{
+        padding-right: 0;
+        width: 100%;
+        margin: 0;
+        max-width: 100%;
+    }
+
+    #header-pint{
+        padding: 0 0;
+    }
+}
+
+@media screen and (max-width: 637px){
+    .a13{
+        
+    }
+}
+
+.a12{
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
 }

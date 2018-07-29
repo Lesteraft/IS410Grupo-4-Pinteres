@@ -1,5 +1,9 @@
 body{
     overflow-y: scroll;
+    background-image: url(../img/acerca-de-pinterest/homepage_template_mobile_bkgd.jpg);
+    width: 100% !important;
+    height: 100%;
+    background-size: cover;
 }
 
 .bg-light {
@@ -52,12 +56,8 @@ button{
     border-color: transparent;
 }
 
+
 #fondo{
-    
-    background-image: url(../img/acerca-de-pinterest/homepage_template_mobile_bkgd.jpg);
-    width: 100% !important;
-    height: 100%;
-    background-size: cover;
     padding-bottom: 250px;
 }
 
@@ -75,4 +75,9 @@ button{
 
 .listas-bonitas a{
     color: rgb(46, 45, 45);
+}
+
+#barra-navegacion{
+    top:0%; 
+    
 }
