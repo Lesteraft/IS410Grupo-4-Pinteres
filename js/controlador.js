@@ -1,34 +1,3 @@
-/**************indexedDB***********/
-
-var db;
-
-function abrirBD(){
-    if (!("indexedDB" in window)) {
-        console.error("Este navegador no soporta indexedDB")
-    }else{
-        console.log("este navegador soporta indexedDB");
-
-        var solicitud = window.indexedDB.open("pinterest", 1);
-
-        solicitud.onerror = function (evento){
-            console.log("ocurrió un error");
-        }
-
-        solicitud.onsuccess = function (evento){
-            console.log("se abrió la base de datos");
-            db = solicitud.result;
-        }
-
-        solicitud.onupgradeneeded = function(evento){
-            console.log("No existía base de datos, se creará");
-            db = evento.target.result;
-            db.createObjectStore("usuarios", {KetPath: "código", autoIncrement: true});
-
-        }
-    }
-}
-
-abrirBD();
 
 /**************indexedDB***********/
 
@@ -47,30 +16,15 @@ function validar(){
             if (document.getElementById("txt-password").value == "") {
                 document.getElementById("txt-password").classList.remove("is-valid");
                 document.getElementById("txt-password").classList.add("is-invalid");
-                return false;
+                
+
             }else{
                 document.getElementById("txt-password").classList.remove("is-invalid");
                 document.getElementById("txt-password").classList.add("is-valid");
                 
-
-                var usuario = {};
-                usuario.correo = document.getElementById("txt-email").value;
-                usuario.password = document.getElementById("txt-password").value;
-                console.log(usuario);
-
-                var transaccion = db.transaction(["usuarios"], "readwrite");
-                var objectStoreUsuarios = transaccion.objectStore("usuarios");
-                var solicitud = objectStoreUsuarios.add(usuario);
-
-                solicitud.onerror = function (evento){
-                    console.log("no se pudo insertar el registro");
-                }
-
-                solicitud.onsuccess = function (evento){
-                    console.log("se logro insertar el registro");
-                }
-
-                return true;
+                window.location = "desde-login/usuario.html";
+                
+               
             }
         }
         else{

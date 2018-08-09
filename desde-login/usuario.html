@@ -20,7 +20,7 @@
     
                 <div style="flex: 1 1 auto;" class="a12 ocultar">
                     <div class="input-group mb-3 ocultar" id="input-navbar">
-                        <div style="padding: 5px 0px; margin-right: -70px;">
+                        <div style="padding: 5px 0px; margin-right: -38px;">
                             <i class="fas fa-search faz"></i>
                         </div>
                         <input type="text" class="form-control" placeholder="Buscar" id="txt-buscar" aria-label="Username" aria-describedby="basic-addon1">
@@ -51,7 +51,8 @@
                                 <i class="fas fa-user-friends faz"></i>
                             </div>
                     </div>
-                    <div class="cir-tras-hov"><div class="ocultar">
+                    <div class="cir-tras-hov">
+                        <div class="ocultar">
                             Explorar
                         </div>
                         <div class="mostrar">
@@ -60,25 +61,66 @@
                     </div>
                     <div class="cir-tras-hov aa a13" >
                         <div class="ocultar">
-                            <img class="rounded-circle img-thumbnail" src="../img/Usuario/2.jpg" style="width: 35px;"> Lester
+                            <img class="rounded-circle img-thumbnail" src="../img/Usuario/2.jpg" style="width: 30px;"> Lester
                         </div>
                         <div class="mostrar">
-                            <img class="rounded-circle img-thumbnail" src="../img/Usuario/2.jpg" style="width: 35px;">
+                            <img class="rounded-circle img-thumbnail" src="../img/Usuario/2.jpg" style="width: 30px;">
                         </div>
                     </div>
-                    <div class="cir-tras-hov aa a13">
-                        <i class="fas fa-comment-dots faz"></i>
+
+                    <div>
+                        <div class="dropleftdown cir-tras-hov aa a13" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="" id="dropdownMenuMensajes"  >     
+                                <i class="fas fa-comment-dots faz"></i>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuMensajes">
+                                    <div class="tcdd" style="right: 33%;"><svg width="24" height="24"><path d="M0 24 L12 12 L24 24"></path></svg></div>
+                                    
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="cir-tras-hov aa a13">
-                        <i class="fas fa-bell faz"></i>
+
+                    <div>
+                        <div class="dropleftdown cir-tras-hov aa a13" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                            <div class="" id="dropdownMenuNotificaciones" >
+                                    <i class="fas fa-bell faz"></i>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuNotificaciones">
+                                    <div class="tcdd" style="right: 18%;"><svg width="24" height="24"><path d="M0 24 L12 12 L24 24"></path></svg></div>
+                                    
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="cir-tras-hov aa a13">
-                        <i class="fas fa-ellipsis-h faz"></i>
+
+                    <div>
+                        <div class="dropleftdown cir-tras-hov aa a13" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="" id="dropdownMenuOpciones"  >
+                                <i class="fas fa-ellipsis-h faz"></i>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuOpciones">
+                                    <div class="tcdd"><svg width="24" height="24"><path d="M0 24 L12 12 L24 24"></path></svg></div>
+                                    <div class="dropdown-item-text bdbxsi"><h4>Consigue una cuenta para empresas gratuita</h4></div>
+                                    <div class="dropdown-item-text bdbxsi">Desbloquea herramientas profesionales como analytics y anuncios</div>
+                                    <div class="bdbxsi"><button type="button" id="btn-actualizar-ahora" >Actualizar ahora</button></div>
+                                    <div class="dropdown-item bdbxsi"></div>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Editar Ajustes</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Obtener ayuda</a>
+                                    <a class="dropdown-item" href="#">Ver términos y privacidad</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Cerrar sesión</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
             <hr>
     </header>
-    
+
+  
+    <script src="../jquery/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
