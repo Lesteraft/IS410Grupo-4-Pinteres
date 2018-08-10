@@ -7,7 +7,7 @@ body {
 
 .letraNav{
     
-    color:#B5B5B5;
+    color:#B5B5B5; 
     font-size: 16px;
     font-weight: 700;
     border: 0;
@@ -103,6 +103,8 @@ input:focus{
     vertical-align: middle;
     width: auto;
 }
+
+
 
 .fas{
     color: rgb(194, 194, 194)
@@ -224,14 +226,12 @@ img{
     box-sizing: border-box;
 }
 
-.main{
-    display: block;
-}
 
 #btn-Explorador{
     padding: 12px 16px; 
     border-radius: 999px; 
     font-size: 14px;
+    
 }
 
 
