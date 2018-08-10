@@ -87,11 +87,11 @@
               while(($linea = fgets($archivo))){
                 $partes = explode(",",$linea);
 
-                echo'<div class="card columna " style="max-width: 260px; padding:8px; " id="Id1">
-                        <img class="card-img-top" src="img/'.$partes[0].'" alt="Card image cap" id="" >
+                echo'<div class="card columna " style="max-width: 260px; padding:8px;" id="'.$partes[0].'">
+                        <img class="card-img-top" src="img/'.$partes[1].'" id="idImagen" >
                         <div class="card-body row">
-                            <h4 class="card-text letraNav">'.$partes[1].'</h4>
-                            <button type="button" class="btn btn-light letraNav rounded-circle" style=" padding:6px; position: relative;left:135px; width: 24px;height: 24px;" >
+                            <h4 class="card-text letraNav">'.$partes[2].'</h4>
+                            <button type="button" class="btn btn-light letraNav rounded-circle" style=" padding:6px; position: relative;left:90px; width: 24px;height: 24px;" >
                                 <i class="fas fa-ellipsis-h" style="align-content: center"></i> </button>
                             </button>
                         </div>
@@ -108,20 +108,30 @@
     <script src="js/controlador.js"></script>
     <script>
 
-        $("#Id1").mouseenter(function(){
-            console.log("El cursor entro en el div");
-            $("#Id1").css("background-color","#F2F2F2",); 
-            $("#Id1 img").css("-webkit-filter","brightness(50%)","webkit-filter",
-            "brightness(50%)");
-
+        var contador=0;
+           
+        $( ".card" ).each(function( ) {
+            contador+=1;
         });
+        
+        console.log(contador);
 
-        $("#Id1").mouseleave(function(){
-            console.log("El cursor entro en el div");
-            $("#Id1").css("background-color","transparent");
-            $("#Id1 img").css("-webkit-filter","brightness(100%)","webkit-filter",
-            "brightness(100%)");
-        });
+        for (let i = 1; i <= contador; i++) {
+            
+            $("#"+i).mouseenter(function(){
+                $("#"+i).css("background-color","#F2F2F2",); 
+                $("#"+i+" img").css("-webkit-filter","brightness(50%)","webkit-filter",
+                "brightness(50%)");
+            });
+
+            $("#"+i).mouseleave(function(){
+                $("#"+i).css("background-color","transparent");
+                $("#"+i+" img").css("-webkit-filter","brightness(100%)","webkit-filter",
+                "brightness(100%)");
+            });
+                
+        }
+
     </script>
 
 </body>
