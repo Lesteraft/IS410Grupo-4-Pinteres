@@ -1,9 +1,9 @@
 #header-pint{
     background-color: white;
-    padding: 0px 10px;
+    padding: 0px 0px;
     border-bottom-color: black;
     border-bottom-width: 10px;
-    height: 70px;
+    height: 67px;
     box-sizing: border-box;
     min-width: 400px;
 }
@@ -71,7 +71,7 @@ input:focus{
 }
 
 .faz{
-    font-size: 23px !important;
+    font-size: 21px !important;
 }
 
 #input-navbar{
@@ -128,7 +128,7 @@ input::-moz-placeholder {
 }
 
 
-@media screen and (max-width: 881px){
+@media screen and (max-width: 911px){
     .ocultar{
         display: none;
     }
@@ -175,6 +175,7 @@ input::-moz-placeholder {
     box-sizing: border-box;
     left: 40%;
     border-radius: 0px 0px 0px 0px;
+    position: fixed;
 }
 
 #dropdownMenuOpciones{
