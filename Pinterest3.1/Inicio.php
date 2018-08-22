@@ -6,12 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Pinterest</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/login.jpg">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="img/login/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/estilos-usuario.css">
     <link rel="stylesheet" href="fuentes/css/all.css">
-    <link href="custom.css" rel="stylesheet">
-
+    <link href="css/custom.css" rel="stylesheet">
+    
+    
 </head>
 <body >
 <header id="header-pint">
@@ -40,7 +43,7 @@
                         <i class="fas fa-search faz"></i>
                     </div> 
 
-                    <a href="Inicio.php">
+                    <a href="#" id="btn-inicio">
                     <div class="cir-tras-hov ocultar">
                         <div>
                             Inicio
@@ -48,7 +51,7 @@
                     </div>
                     </a>                                    
 
-                    <a href="Siguiendo.html">
+                    <a href="#" id="btn-siguiendo">
                     <div class="cir-tras-hov">
                             <div class="ocultar">
                                 Siguiendo
@@ -59,7 +62,7 @@
                     </div>
                     </a>
 
-                    <a href="Explorar.php">
+                    <a href="#" id="btn-explorar">
                     <div class="cir-tras-hov">
                         <div class="ocultar">
                             Explorar
@@ -130,7 +133,9 @@
             <hr>
     </header>
 
-<div class="columna" style="margin:3px;padding-top:24px;" id="CuerpoImg"></div>     
+
+<section role="main" id="contenidoTotal"></section>
+  
 
 <button data-toggle="modal" data-target="#modal-Pin" type="button" class="btn btn-agregar rounded-circle">
     <i class="fas fa-plus"></i>
