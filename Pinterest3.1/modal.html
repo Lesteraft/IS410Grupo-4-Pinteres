@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="estilo_subirPin.css" />
+   
+</head>
+<body>
+    
+    <!--div class="modal fade" id="modal-Pin" tabindex="-1" role="dialog"  aria-hidden="true"-->
+        <div class="modal-dialog" role="document" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title" style="font-size: 24px; color: #333">Crear Pin</h1>
+                    <button type="button" class="close btn-light rounded-circle" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <button class="imagenSub">
+                        <div>
+                            <i class="fas fa-camera"></i><br>
+                            <div>Arrastra y suelta, o haz clic para cargar</div>
+                        </div>
+                    </button>
+                    <div style="margin-right: 24px;">
+                        <label for="native-content-link">Sitio Web:</label><br>
+                        <input class="Inputmodal form-control" type="url" placeholder="Añade la URL con la que enlaza este Pin"><br><br>
+                        <label for="native-content-description">Descripcion:</label><br>
+                        <textarea class="Inputmodal form-control" placeholder="Di algo más sobre este Pin" rows="6"></textarea>
+                    </div>
+                </div>
+               
+                <div class="modal-footer">
+
+                    <div class="btn-group" role="group" >
+                        <button type="button" class="btn btn-light form-control" id="btn-cargarPin">Cargar Pin</button>
+                        <button type="button" class="btn btn-light form-control" id="btn-guardardSitio">Guardar desde el sitio</button>
+                    </div>
+
+                    <div style="right: -400px; position: relative;">
+                        <!--input type="submit" class="btn btn-light form-control" id="btn-AgregarPin">Listo</button-->
+                        <input type="submit" value="Listo" name="submit" class="btn btn-light form-control">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    
+
+</body>
+</html>
