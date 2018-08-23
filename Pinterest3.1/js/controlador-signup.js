@@ -32,6 +32,7 @@ function validar(){
                     method: "POST",
                     success: function(respuesta){
                         console.log(respuesta);
+                        window.location = "Inicio.php"
                     },
                     error: function(error){
                         console.log(error);

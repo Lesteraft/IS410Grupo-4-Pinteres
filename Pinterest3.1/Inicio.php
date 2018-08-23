@@ -145,56 +145,29 @@
 <div class="modal fade" id="modal-Pin" tabindex="-1" role="dialog"  aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title">Crear Pin</h5>
-            <button type="button" class="close btn-light rounded-circle" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            Para crear una Pin, debe de crear un archivo csv 
-            
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-primary" id="btn-AgregarPin">Crear Pin</button>
-        </div>
+            <div class="modal-header">
+                <h5 class="modal-title">Crear Pin</h5>
+                <button type="button" class="close btn-light rounded-circle" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Para crear una Pin, debe de crear un archivo csv 
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btn-AgregarPin">Crear Pin</button>
+            </div>
         </div>
     </div>
 </div>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/controlador_inicio.js"></script>
-    <script src="jquery/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/controlador_inicio.js"></script>
+<script src="jquery/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
     
-    <script>
-
-    var contador=0;
-    
-    $( ".card" ).each(function( ) {
-        contador+=1;
-    });
-
-    console.log(contador);
-
-    for (let i = 1; i <= contador; i++) {
-        
-        $("#"+i).mouseenter(function(){
-            $("#"+i).css("background-color","#F2F2F2",); 
-            $("#"+i+" img").css("-webkit-filter","brightness(50%)","webkit-filter","brightness(50%)");
-        // $("#"+i).append("<div class='float-left' style='background: transparent'>Float</div><br>");
-
-        });
-
-        $("#"+i).mouseleave(function(){
-            $("#"+i).css("background-color","transparent");
-            $("#"+i+" img").css("-webkit-filter","brightness(100%)","webkit-filter",
-            "brightness(100%)");
-            //$("#"+i).html("<button type='button' class='btn btn-danger style='display:none'>Danger</button>");
-        });
-        
-}
-
-</script>
 </body>
 </html>
