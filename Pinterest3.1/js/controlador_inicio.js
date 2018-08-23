@@ -1,18 +1,13 @@
 mostrarImagenes();
 
 function mostrarImagenes(){
-
 	$("#contenidoTotal").html('<div class="columna" style="margin:3px;padding-top:24px;" id="CuerpoImgInicio"></div>');
-
 	$.ajax({
-
         url:"ajax/ImagenesInicio.php",
         dataType:"json",
         success: function(respuesta){
-			 console.log(respuesta)
-
+			 console.log(respuesta);
             for (var i=0;i<respuesta.length;i++){
-
                  $("#CuerpoImgInicio").append(
                     `<a class="card" style="padding:8px; margin:3px; display: inline-block; position:relative;" id="${respuesta[i].id}">
                         <img class="card-img-top" src="img/${respuesta[i].imagen}">
@@ -24,7 +19,6 @@ function mostrarImagenes(){
                         </div> 
                     </a>
                     <button type="button" style="float: right; position:relative; display:none;" class="btn btn-danger evento"  id="btn-${respuesta[i].id}">Danger</button>`
-                    
                  );
             }  
         },

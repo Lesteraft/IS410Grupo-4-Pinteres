@@ -2,11 +2,14 @@
 
     session_start();
 
-    $archivo = fopen("../data/usuarios/usuarios-personal/usuarios.json", "r");
+    $archivo = fopen("../data/usuarios/registro-usuarios-personal/usuarios.json", "r");
     $Linea = "";
     while(($Linea = fgets($archivo))){
         $Registro = json_decode($Linea, true);
         if($Registro["Email"] == $_POST["Email"] && $Registro["Password"] == $_POST["Password"]){
+            $Nombre = explode("@", $_POST["Email"]);
+            $_SESSION["Nombre"] = ucfirst($Nombre[0]);
+            $_SESSION["urlImage"] = $Registro["urlImage"];
             $_SESSION["Email"] = $_POST["Email"];
             $_SESSION["Password"] = $_POST["Password"];
             echo '{"codigo":0,"mensaje":"Usuario logueado con exito"}';
@@ -15,7 +18,7 @@
     }
     fclose($archivo);
 
-    $Archivo = fopen("../data/usuarios/usuarios-empresarial/usuarios.json", "r");
+    $Archivo = fopen("../data/usuarios/registro-usuarios-empresarial/usuarios.json", "r");
     $linea = "";
     while(($linea = fgets($Archivo))){
         $registro = json_decode($linea, true);

@@ -1,4 +1,6 @@
-<?php include("Seguridad.php"); ?>
+<?php   
+include("Seguridad.php");
+?>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -75,10 +77,10 @@
 
                     <div class="cir-tras-hov aa a13" >
                         <div class="ocultar">
-                            <img class="rounded-circle img-thumbnail" src="img/Usuario/2.jpg" style="width: 30px;"> Lester
+                            <img class="rounded-circle img-thumbnail" src="<?php echo $_SESSION["urlImage"];?>" style="width: 30px;"> <?php echo $_SESSION["Nombre"];?>
                         </div>
                         <div class="mostrar">
-                            <img class="rounded-circle img-thumbnail" src="img/Usuario/2.jpg" style="width: 30px;">
+                            <img class="rounded-circle img-thumbnail" src="<?php echo $_SESSION["urlImage"];?>" style="width: 30px;">
                         </div>
                     </div>
 

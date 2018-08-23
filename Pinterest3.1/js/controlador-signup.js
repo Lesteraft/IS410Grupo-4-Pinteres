@@ -22,7 +22,7 @@ function validar(){
                 document.getElementById("txt-password").classList.remove("is-invalid");
                 document.getElementById("txt-password").classList.add("is-valid");
                 
-                var parametros = "Email="+$("#txt-email").val()+"&Password="+$("#txt-password").val()+"&TipoUsuario=personal";
+                var parametros = "Email="+$("#txt-email").val()+"&Password="+$("#txt-password").val()+"&TipoUsuario=personal&urlImage=data/usuarios/perfiles/imagenes/vacio.png";
                 console.log(parametros);
 
                 $.ajax({
