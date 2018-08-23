@@ -11,9 +11,10 @@ include("Seguridad.php");
     <link rel="shortcut icon" href="img/login.jpg">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="img/login/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/estilos-usuario.css">
     <link rel="stylesheet" href="fuentes/css/all.css">
+    <link rel="stylesheet" href="css/estilos-usuario2.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos-usuario.css">
     <link href="css/custom.css" rel="stylesheet">
     
     
@@ -75,7 +76,7 @@ include("Seguridad.php");
                     </div>
                     </a>
 
-                    <div class="cir-tras-hov aa a13" >
+                    <div class="cir-tras-hov aa a13" id="btn-usuario" >
                         <div class="ocultar">
                             <img class="rounded-circle img-thumbnail" src="<?php echo $_SESSION["urlImage"];?>" style="width: 30px;"> <?php echo $_SESSION["Nombre"];?>
                         </div>
@@ -132,11 +133,10 @@ include("Seguridad.php");
                     
                 </div>
             </div>
-            <hr>
-    </header>
+        <hr>
+</header>
 
-
-<section role="main" id="contenidoTotal"></section>
+<section id="contenidoTotal"></section>
   
 
 <button data-toggle="modal" data-target="#modal-Pin" type="button" class="btn btn-agregar rounded-circle">
