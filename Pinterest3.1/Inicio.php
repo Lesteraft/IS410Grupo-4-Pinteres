@@ -157,11 +157,12 @@
                 </button>
             </div>
             <div class="modal-body">
+                <input type="file" id="fileElem" name="fileElem" accept="image/*" style="display:none" >
                 <button class="imagenSub" id="drop_zone">
-                    <div id="preview" >
+                    <output id="preview">
                         <i class="fas fa-camera"></i><br>
                         <div>Arrastra y suelta, o haz clic para cargar</div>
-                    </div>
+                    </output>
                 </button>
                 <div style="margin-right: 24px;">
                     <label for="native-content-link" >Nombre de la Imagen:</label><br>
