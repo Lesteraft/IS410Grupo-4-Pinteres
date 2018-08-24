@@ -14,9 +14,15 @@
 }
 
 #encabezadoFoto{
-    right: 100%;
+    background-color: white;
     margin-left: 186px;
     margin-top: 70px;
+    cursor: pointer;
+}
+
+#encabezadoFoto:focus{
+    outline: none;
+    border-color: transparent;
 }
 
 #encabezadoInformacion h4{
@@ -78,6 +84,11 @@ button .fas{
     color: white !important;
 }
 
+#modalImagen{
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 #encabezadoInformacion{
     width: 450px;

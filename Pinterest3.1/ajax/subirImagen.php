@@ -1,6 +1,6 @@
 <?php
-
-$target_dir = "img/";
+session_start();
+$target_dir = "../img/Usuario/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -24,7 +24,7 @@ if (file_exists($target_file)) {
     $uploadOk = 0;
 }
 // Verificar el tamaño del archivo
-if ($_FILES["fileToUpload"]["size"] > 500000) {
+if ($_FILES["fileToUpload"]["size"] > 5000000000) {
     echo "Lo siento, tu archivo es demasiado grande.";
     $uploadOk = 0;
 }
@@ -40,9 +40,13 @@ if ($uploadOk == 0) {
 // si todo está bien, intenta subir el archivo
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "El Archivo ". basename( $_FILES["fileToUpload"]["name"]). " ha sido cargado";
+        $_SESSION["urlImage"] = "img/Usuario/".basename( $_FILES["fileToUpload"]["name"]);
+        echo "El Archivo ".   $_SESSION["urlImage"]. " ha sido cargado";
+        header("Location: ../Inicio.php?opcion=Usuario");
     } else {
         echo "Lo sentimos, hubo un error al cargar su archivo.";
     }
 }
+
+
 ?>

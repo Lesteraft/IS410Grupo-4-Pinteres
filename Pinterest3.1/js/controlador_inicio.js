@@ -55,8 +55,6 @@ function EntradaMouse(cantidaCard) {
     
 }
 
-
-
 $("#btn-AgregarPin").click(function(){
 
 });
@@ -79,17 +77,112 @@ $(document).ready(function(){
         $("#"+$(this).attr("id")+" img").css("-webkit-filter","brightness(100%)","webkit-filter",
         "brightness(100%)");
     });
+
+    switch($("#OpcionActual").val()){
+        case "Inicio":{
+            mostrarImagenes();
+        }
+        case "Usuario":{
+            $("#contenidoTotal").html("");
+            $.ajax({
+                url: "ajax/InformacionUsuario.php",
+                dataType: "json",
+        
+                success: function(respuesta){
+                    console.log(respuesta);
+        
+                    $("#contenidoTotal").html(` <div id="cuerpoUsuario">
+                    <main class="container">
+                        <div class="row">
+                            <div  class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div id="encabezadoInformacion">
+                                    <div>
+                                        <h4 id="nombreUsuario">${respuesta.Nombre}</h4>
+                                        <div class="navbar" id="InformacionUsuario">
+                                            <button  type="button" class="btn btn-light rounded-circle"><i class="fas fa-upload"></i></button>
+                                            <a href="#">5 followers</a>
+                                            <a href="#">12 followers</a>
+                                        </div>
+                                    </div>
+                                    <div class="navbar">
+                                        <button type="button" class="btn rounded-circle btn-light" >Tablero</button>
+                                        <button type="button" class="btn rounded-circle btn-light" >Pines</button>
+                                        <button type="button" class="btn rounded-circle btn-light" >Pines probados</button>
+                                        <button type="button" class="btn rounded-circle btn-light" >Temas</button>
+                                    </div>
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-6">
+                                    <a class="card" id="crearTablero">
+                                        <div class="card-body row">
+                                            <button type="button" style="float: right; position:relative;" class="btn btn-danger rounded-circle"> <i class="fas fa-plus"></i></button>
+                                        </div>
+                                    </a>
+                                    <div id="txt-crearTablero">
+                                        CREAR TABLERO
+                                    </div>
+                                </div>
+                            </div>
+                            <div  class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <button data-toggle="modal" data-target="#modalImagen" id="encabezadoFoto" class="rounded-circle" style=""><img style="width: 250px;" class="rounded-circle" src="${respuesta.urlImage}" alt="15px"></button>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+                <!-- Modal -->
+                    <div class="modal fade" id="modalImagen" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">Cambiar imagen de perfil</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            <img style="width: 250px; height: 250px" class="rounded-circle" src="${respuesta.urlImage}" alt="15px">
+                        </div>
+                        <div class="modal-footer">
+                        <form action="ajax/subirImagen.php" method="post" enctype="multipart/form-data">
+                            <input type="file" name="fileToUpload" id="fileToUpload">
+                            <input type="submit"  value="subir Imagen" name="submit" id="btn-subirImage" class="btn btn-primary">
+                            <br>
+                        </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>`);
+                },
+                error: function(error){
+                    console.log(error);
+                }
+        
+            });
+        }
+        case "Siguendo":{
+            $("#contenidoTotal").html('<main class="" style=" margin: 5px; padding: 0px 0px 0px 0px; max-width: 100%;"><div style=" margin: 0px 430px; position:center; text-align:left"><h4 style="color: #333; font-size: 36px; margin-top: 50px; line-height: 1.2; letter-spacing: -.4px; " class="letraNav">Sigue a personas con gustos como los tuyos para ver qué ideas nuevas y originales descubren</h4><div class="row" style="margin: 0px 0px; position:absolute;"><img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" ><img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" > <img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" ><img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" ><img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" ><img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" ><img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" ><img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" ><img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" ><img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" ></div><button type="button" class="btn btn-danger" style="max-width: 100%; margin-top: 65px">Ver a quién seguir</button></div></main>');
+        }
+        case "Exlorar":{
+            mostrarImagenesExplorar();
+        }
+        default:{
+            mostrarImagenes();
+        }
+    }
+
 });
 
 $("#btn-siguiendo").click(function(){
+    $("#OpcionActual").val("Siguendo");
     $("#contenidoTotal").html('<main class="" style=" margin: 5px; padding: 0px 0px 0px 0px; max-width: 100%;"><div style=" margin: 0px 430px; position:center; text-align:left"><h4 style="color: #333; font-size: 36px; margin-top: 50px; line-height: 1.2; letter-spacing: -.4px; " class="letraNav">Sigue a personas con gustos como los tuyos para ver qué ideas nuevas y originales descubren</h4><div class="row" style="margin: 0px 0px; position:absolute;"><img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" ><img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" > <img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" ><img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" ><img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" ><img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" ><img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" ><img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" ><img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" ><img class="rounded-circle" style="width: 56px; height: 56px; " src="img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" ></div><button type="button" class="btn btn-danger" style="max-width: 100%; margin-top: 65px">Ver a quién seguir</button></div></main>');
 });
 
 $("#btn-inicio").click(function(){
+    $("#OpcionActual").val("Inicio");
     mostrarImagenes();
 });
 
 $("#btn-explorar").click(function(){
+    $("#OpcionActual").val("Explorar");
     mostrarImagenesExplorar();
     $("#contenidoTotal").html('<main class="container " style=" margin: 5px; padding: 0px 0px 0px 0px; max-width: 100%;"><div><div style="padding-left: 300px;"><h3 style="color: #333; font-size: 48px; margin-top: 50px; " class="letraNav">Explorar</h3></div><div class="btn-group btn-group-lg" role="group" aria-label="" style="padding-left: 250px; margin-top: 40px;"><a type="button " class="btn  btn-light letraNav " id="btn-Explorador">Tendencias</a><a type="button " class="btn  btn-light letraNav " id="btn-Explorador">Citas célebres</a><a type="button " class="btn  btn-light letraNav " id="btn-Explorador">Arte</a><a type="button " class="btn  btn-light letraNav " id="btn-Explorador">Viajes<a><a type="button " class="btn  btn-light letraNav " id="btn-Explorador">Humor</a><a type="button " class="btn  btn-light letraNav " id="btn-Explorador">Comida<a><a type="button " class="btn  btn-light letraNav " id="btn-Explorador">Hogar</a><a type="button " class="btn  btn-light letraNav " id="btn-Explorador">Bellezatton</a><a type="button " class="btn  btn-light letraNav " id="btn-Explorador">Mas</a></div></div><div class="columna" style="margin:3px;padding-top:24px;" id="CuerpoImgEplorar"></div>');
 });
@@ -130,6 +223,7 @@ function mostrarImagenesExplorar(){
 
 
 $("#btn-usuario").click(function(){
+    $("#OpcionActual").val("Usuario");
     $("#contenidoTotal").html("");
     $.ajax({
         url: "ajax/InformacionUsuario.php",
@@ -146,7 +240,7 @@ $("#btn-usuario").click(function(){
                             <div>
                                 <h4 id="nombreUsuario">${respuesta.Nombre}</h4>
                                 <div class="navbar" id="InformacionUsuario">
-                                    <button type="button" class="btn btn-light rounded-circle"><i class="fas fa-upload"></i></button>
+                                    <button  type="button" class="btn btn-light rounded-circle"><i class="fas fa-upload"></i></button>
                                     <a href="#">5 followers</a>
                                     <a href="#">12 followers</a>
                                 </div>
@@ -170,11 +264,34 @@ $("#btn-usuario").click(function(){
                         </div>
                     </div>
                     <div  class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                        <img id="encabezadoFoto" class="rounded-circle" style="width: 150px; right: 100%;" src="${respuesta.urlImage}" alt="15px">
+                        <button data-toggle="modal" data-target="#modalImagen" id="encabezadoFoto" class="rounded-circle" style=""><img style="width: 250px;" class="rounded-circle" src="${respuesta.urlImage}" alt="15px"></button>
                     </div>
                 </div>
             </main>
-        </div>`);
+        </div>
+        <!-- Modal -->
+            <div class="modal fade" id="modalImagen" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Cambiar imagen de perfil</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <img style="width: 250px; height: 250px" class="rounded-circle" src="${respuesta.urlImage}" alt="15px">
+                </div>
+                <div class="modal-footer">
+                <form action="ajax/subirImagen.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input type="submit"  value="subir Imagen" name="submit" id="btn-subirImage" class="btn btn-primary">
+                    <br>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>`);
         },
         error: function(error){
             console.log(error);

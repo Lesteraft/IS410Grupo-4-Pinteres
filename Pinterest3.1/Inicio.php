@@ -1,5 +1,8 @@
 <?php   
-include("Seguridad.php");
+    include("Seguridad.php");
+    if(!isset($_GET['opcion'])){
+        header("location: Inicio.php?opcion=Inicio");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -75,12 +78,12 @@ include("Seguridad.php");
                     </div>
                     </a>
 
-                    <div class="cir-tras-hov aa a13" id="btn-usuario" >
+                    <div class="cir-tras-hov aa a13" id="btn-usuario" style="padding: 1px 5px;" >
                         <div class="ocultar">
-                            <img class="rounded-circle img-thumbnail" src="<?php echo $_SESSION["urlImage"];?>" style="width: 30px;"> <?php echo $_SESSION["Nombre"];?>
+                            <img class="rounded-circle img-thumbnail" src="<?php echo $_SESSION["urlImage"];?>" style="width: 50px;"> <?php echo $_SESSION["Nombre"];?>
                         </div>
                         <div class="mostrar">
-                            <img class="rounded-circle img-thumbnail" src="<?php echo $_SESSION["urlImage"];?>" style="width: 30px;">
+                            <img class="rounded-circle img-thumbnail" src="<?php echo $_SESSION["urlImage"];?>" style="width: 50px;">
                         </div>
                     </div>
 
@@ -89,8 +92,8 @@ include("Seguridad.php");
                             <div class="" id="dropdownMenuMensajes"  >     
                                 <i class="fas fa-comment-dots faz"></i>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuMensajes">
-                                    <div class="tcdd" style="right: 33%;"><svg width="24" height="24"><path d="M0 24 L12 12 L24 24"></path></svg></div>
-                                    
+                                    <div class="tcdd" style="right: 33%;"><svg width="24" height="24"><path d="M0 24 L12 12 L24 24"></path></svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -101,8 +104,8 @@ include("Seguridad.php");
                             <div class="" id="dropdownMenuNotificaciones" >
                                     <i class="fas fa-bell faz"></i>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuNotificaciones">
-                                    <div class="tcdd" style="right: 18%;"><svg width="24" height="24"><path d="M0 24 L12 12 L24 24"></path></svg></div>
-                                    
+                                    <div class="tcdd" style="right: 18%;"><svg width="24" height="24"><path d="M0 24 L12 12 L24 24"></path></svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -155,13 +158,13 @@ include("Seguridad.php");
             </div>
             <div class="modal-body">
                 <button class="imagenSub" id="drop_zone">
-                    <div id="preview">
+                    <div id="preview" >
                         <i class="fas fa-camera"></i><br>
                         <div>Arrastra y suelta, o haz clic para cargar</div>
                     </div>
                 </button>
                 <div style="margin-right: 24px;">
-                    <label for="native-content-link" >Id:</label><br>
+                    <label for="native-content-link" >Nombre de la Imagen:</label><br>
                     <input id="txt-id" class="Inputmodal form-control" type="url" placeholder="Añade la Id para este Pin"><br><br>
                     <label for="native-content-description">Descripcion:</label><br>
                     <textarea id="txt-descripcion" class="Inputmodal form-control" placeholder="Di algo más sobre este Pin" rows="6"></textarea>
@@ -171,26 +174,28 @@ include("Seguridad.php");
             <div class="modal-footer">
 
                 <div class="btn-group" role="group" >
-                    <button type="button" class="btn btn-light" id="btn-cargarPin">Cargar Pin</button>
-                    <button type="button" class="btn btn-light" id="btn-guardardSitio">Guardar desde el sitio</button>
+                    <button type="button" class="btn btn-secondary" id="btn-cargarPin">Cargar Pin</button>
+                    <button type="button" class="btn btn-secondary" id="btn-guardardSitio">Guardar desde el sitio</button>
                 </div>
 
                 <div style="right: -350px; position:relative;">
-                    <button type="submit" class="btn btn-light " id="btn-AgregarPin">Listo</button>
+                    <button type="submit" class="btn btn-secondary" id="btn-AgregarPin">Listo</button>
                     
                 </div>
-
             </div>
         </div>
     </div>
 </div>
 
+<div style="display: none" >
+    <input  style="display: none !important;" type="text" value="<?php echo $_GET['opcion']?>" id="OpcionActual">
+</div>
 
 <script src="js/jquery.min.js"></script>
 <script src="js/controlador_inicio.js"></script>
 <script src="js/controlador_modal.js"></script>
 <script src="jquery/jquery.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
     
 </body>
 </html>
