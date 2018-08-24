@@ -11,12 +11,11 @@ include("Seguridad.php");
     <link rel="shortcut icon" href="img/login.jpg">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="img/login/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/estilos-usuario.css">
     <link rel="stylesheet" href="fuentes/css/all.css">
     <link href="css/custom.css" rel="stylesheet">
     <link href="css/estilo_subirPin.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="css/estilos-usuario.css">
+    <link rel="stylesheet" href="css/estilos-usuario2.css">
     
 </head>
 <body >
@@ -76,7 +75,7 @@ include("Seguridad.php");
                     </div>
                     </a>
 
-                    <div class="cir-tras-hov aa a13" >
+                    <div class="cir-tras-hov aa a13" id="btn-usuario" >
                         <div class="ocultar">
                             <img class="rounded-circle img-thumbnail" src="<?php echo $_SESSION["urlImage"];?>" style="width: 30px;"> <?php echo $_SESSION["Nombre"];?>
                         </div>

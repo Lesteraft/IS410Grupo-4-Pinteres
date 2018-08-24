@@ -73,3 +73,12 @@ button{
 #btn-actualizar-ahora{
     color: white !important;
 }
+
+button .fas{
+    color: white !important;
+}
+
+
+#encabezadoInformacion{
+    width: 450px;
+}
