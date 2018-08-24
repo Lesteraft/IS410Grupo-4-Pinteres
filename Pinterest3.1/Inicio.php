@@ -172,12 +172,12 @@ include("Seguridad.php");
             <div class="modal-footer">
 
                 <div class="btn-group" role="group" >
-                    <button type="button" class="btn btn-light form-control" id="btn-cargarPin">Cargar Pin</button>
-                    <button type="button" class="btn btn-light form-control" id="btn-guardardSitio">Guardar desde el sitio</button>
+                    <button type="button" class="btn btn-light" id="btn-cargarPin">Cargar Pin</button>
+                    <button type="button" class="btn btn-light" id="btn-guardardSitio">Guardar desde el sitio</button>
                 </div>
 
-                <div style="right: -400px; position: relative;">
-                    <button type="submit" class="btn btn-light form-control" id="btn-AgregarPin">Listo</button>
+                <div style="right: -350px; position:relative;">
+                    <button type="submit" class="btn btn-light " id="btn-AgregarPin">Listo</button>
                     
                 </div>
 

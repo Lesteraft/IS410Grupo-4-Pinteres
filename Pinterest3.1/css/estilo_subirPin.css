@@ -39,12 +39,8 @@
 }
 
 .fade{
-    opacity: .9;
-    overflow-y: scroll;
-    background-color: #333;
-    position: absolute;
-    right: 0;
-    top: 0;
+
+   
 }
 
 .Inputmodal{
