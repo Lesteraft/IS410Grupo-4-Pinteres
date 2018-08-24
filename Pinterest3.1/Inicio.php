@@ -11,11 +11,11 @@ include("Seguridad.php");
     <link rel="shortcut icon" href="img/login.jpg">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="img/login/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="fuentes/css/all.css">
-    <link rel="stylesheet" href="css/estilos-usuario2.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/estilos-usuario.css">
+    <link rel="stylesheet" href="fuentes/css/all.css">
     <link href="css/custom.css" rel="stylesheet">
+    <link href="css/estilo_subirPin.css" rel="stylesheet">
     
     
 </head>
@@ -76,7 +76,7 @@ include("Seguridad.php");
                     </div>
                     </a>
 
-                    <div class="cir-tras-hov aa a13" id="btn-usuario" >
+                    <div class="cir-tras-hov aa a13" >
                         <div class="ocultar">
                             <img class="rounded-circle img-thumbnail" src="<?php echo $_SESSION["urlImage"];?>" style="width: 30px;"> <?php echo $_SESSION["Nombre"];?>
                         </div>
@@ -133,10 +133,11 @@ include("Seguridad.php");
                     
                 </div>
             </div>
-        <hr>
-</header>
+            <hr>
+    </header>
 
-<section id="contenidoTotal"></section>
+
+<section role="main" id="contenidoTotal"></section>
   
 
 <button data-toggle="modal" data-target="#modal-Pin" type="button" class="btn btn-agregar rounded-circle">
@@ -145,29 +146,50 @@ include("Seguridad.php");
 
 <!-- Crear Pin -->
 <div class="modal fade" id="modal-Pin" tabindex="-1" role="dialog"  aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog" role="document" >
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Crear Pin</h5>
+                <h1 class="modal-title" style="font-size: 24px; color: #333">Crear Pin</h1>
                 <button type="button" class="close btn-light rounded-circle" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                Para crear una Pin, debe de crear un archivo csv 
-                
+                <button class="imagenSub" id="drop_zone">
+                    <div id="preview">
+                        <i class="fas fa-camera"></i><br>
+                        <div>Arrastra y suelta, o haz clic para cargar</div>
+                    </div>
+                </button>
+                <div style="margin-right: 24px;">
+                    <label for="native-content-link" >Id:</label><br>
+                    <input id="txt-id" class="Inputmodal form-control" type="url" placeholder="Añade la Id para este Pin"><br><br>
+                    <label for="native-content-description">Descripcion:</label><br>
+                    <textarea id="txt-descripcion" class="Inputmodal form-control" placeholder="Di algo más sobre este Pin" rows="6"></textarea>
+                </div>
             </div>
+            
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btn-AgregarPin">Crear Pin</button>
+
+                <div class="btn-group" role="group" >
+                    <button type="button" class="btn btn-light form-control" id="btn-cargarPin">Cargar Pin</button>
+                    <button type="button" class="btn btn-light form-control" id="btn-guardardSitio">Guardar desde el sitio</button>
+                </div>
+
+                <div style="right: -400px; position: relative;">
+                    <button type="submit" class="btn btn-light form-control" id="btn-AgregarPin">Listo</button>
+                    
+                </div>
+
             </div>
         </div>
     </div>
 </div>
 
 
-
 <script src="js/jquery.min.js"></script>
 <script src="js/controlador_inicio.js"></script>
+<script src="js/controlador_modal.js"></script>
 <script src="jquery/jquery.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
     

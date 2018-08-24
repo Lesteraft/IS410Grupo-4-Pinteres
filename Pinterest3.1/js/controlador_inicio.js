@@ -10,9 +10,9 @@ function mostrarImagenes(){
             for (var i=0;i<respuesta.length;i++){
                  $("#CuerpoImgInicio").append(
                     `<a class="card" style="padding:8px; margin:3px; display: inline-block; position:relative;" id="${respuesta[i].id}">
-                        <img class="card-img-top" src="img/${respuesta[i].imagen}">
+                        <img class="card-img-top" src="img/${respuesta[i].nombreImagen}">
                         <div class="card-body row">
-                            <h4 class="card-text letraNav">${respuesta[i].NombreImagen}</h4>
+                            <h4 class="card-text letraNav">${respuesta[i].nombreImagen}</h4>
                             <button type="button" class="btn btn-light letraNav rounded-circle btn-pin" style=" padding:6px; position: relative;left:90px; width: 24px;height: 24px;" >
                                 <i class="fas fa-ellipsis-h" style="align-content: center"></i> 
                             </button>
@@ -95,10 +95,12 @@ $("#btn-explorar").click(function(){
 });
 
 function mostrarImagenesExplorar(){
+
 	$("#CuerpoImgEplorar").html("");
+
 	$.ajax({
 
-        url:"ajax/ImagenesExplorar.php",
+        url:"ajax/ImagenesInicio.php",
         dataType:"json",
         success: function(respuesta){
 			 console.log(respuesta)
@@ -107,9 +109,9 @@ function mostrarImagenesExplorar(){
 
                  $("#CuerpoImgEplorar").append(
                     `<a class="card" style="padding:8px; margin:3px; display: inline-block;" id="${respuesta[i].id}">
-                        <img class="card-img-top" src="img/${respuesta[i].imagen}"  >
+                        <img class="card-img-top" src="img/${respuesta[i].nombreImagen}"  >
                         <div class="card-body row">
-                            <h4 class="card-text letraNav">${respuesta[i].NombreImagen}</h4>
+                            <h4 class="card-text letraNav">${respuesta[i].nombreImagen}</h4>
                             <button type="button" class="btn btn-light letraNav rounded-circle btn-pin" style=" padding:6px; position: relative;left:90px; width: 24px;height: 24px;" >
                                 <i class="fas fa-ellipsis-h" style="align-content: center"></i> </button>
                             </button>
@@ -117,64 +119,11 @@ function mostrarImagenesExplorar(){
                         <button type="button" class="btn btn-danger" style="display:none">Danger</button>
                     </a>`
                  );
-			}
+			}  
+		
         },
         error:function(error){
             console.log(error);
         }
 	});
 }
-
-$("#btn-usuario").click(function(){
-    $("#contenidoTotal").html("");
-    $.ajax({
-        url: "ajax/InformacionUsuario.php",
-        dataType: "json",
-
-        success: function(respuesta){
-            console.log(respuesta);
-
-            $("#contenidoTotal").html(` <div id="cuerpoUsuario">
-            <main class="container">
-                <div class="row">
-                    <div  class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div id="encabezadoInformacion">
-                            <div>
-                                <h4 id="nombreUsuario">${respuesta.Nombre}</h4>
-                                <div class="navbar" id="InformacionUsuario">
-                                    <button type="button" class="btn btn-light rounded-circle"><i class="fas fa-upload"></i></button>
-                                    <a href="#">5 followers</a>
-                                    <a href="#">12 followers</a>
-                                </div>
-                            </div>
-                            <div class="navbar">
-                                <button type="button" class="btn rounded-circle btn-light" >Tablero</button>
-                                <button type="button" class="btn rounded-circle btn-light" >Pines</button>
-                                <button type="button" class="btn rounded-circle btn-light" >Pines probados</button>
-                                <button type="button" class="btn rounded-circle btn-light" >Temas</button>
-                            </div>
-                        </div>
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-6">
-                            <a class="card" id="crearTablero">
-                                <div class="card-body row">
-                                    <button type="button" style="float: right; position:relative;" class="btn btn-danger rounded-circle">+</button>
-                                </div>
-                            </a>
-                            <div id="txt-crearTablero">
-                                CREAR TABLERO
-                            </div>
-                        </div>
-                    </div>
-                    <div  class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                        <img id="encabezadoFoto" class="rounded-circle" style="width: 150px; right: 100%;" src="${respuesta.urlImage}" alt="15px">
-                    </div>
-                </div>
-            </main>
-        </div>`);
-        },
-        error: function(error){
-            console.log(error);
-        }
-
-    });
-});
