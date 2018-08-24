@@ -19,7 +19,7 @@ include("Seguridad.php");
     
 </head>
 <body >
-<header id="header-pint">
+    <header id="header-pint">
             <div class="navbar" style="height: 55px;">
 
                 <div class="ocultar">
@@ -135,13 +135,13 @@ include("Seguridad.php");
             <hr>
     </header>
 
+<button data-toggle="modal" data-target="#modal-Pin" type="button" class="btn btn-agregar rounded-circle" id="btn-pinFoto">
+    <i class="fas fa-plus"></i>
+</button>
+
 
 <section role="main" id="contenidoTotal"></section>
   
-
-<button data-toggle="modal" data-target="#modal-Pin" type="button" class="btn btn-agregar rounded-circle">
-    <i class="fas fa-plus"></i>
-</button>
 
 <!-- Crear Pin -->
 <div class="modal fade" id="modal-Pin" tabindex="-1" role="dialog"  aria-hidden="true">

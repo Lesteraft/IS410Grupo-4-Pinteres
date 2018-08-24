@@ -127,6 +127,10 @@ hr{
     position: absolute;
 }
 
-
-
-
+#btn-pinFoto{
+    right: 0;
+    margin: 15px;
+    position: fixed;
+    z-index: 1010;
+    bottom: 0;
+}
