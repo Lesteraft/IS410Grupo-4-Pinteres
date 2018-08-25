@@ -133,3 +133,7 @@ hr{
     z-index: 1010;
     bottom: 0;
 }
+
+#modal-Pin{
+    max-width: 1200px;
+}

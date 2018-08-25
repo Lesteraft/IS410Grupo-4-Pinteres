@@ -5,6 +5,28 @@ $("#drop_zone").click(function(){
 	}
 });
 
+$(document).ready(function(){
+	$("#frm-subirImagenPin").bind("submit", function(){
+        var frmData = new FormData;
+        frmData.append("fileElem", $("input[name=fileElem]")[0].files[0]);
+        $.ajax({
+            url: "ajax/GuardarImagenPin.php",
+            data: frmData,
+            type: "POST",
+            success: function(respuesta){
+				console.log(respuesta);
+				$.ajax({
+				//	var parametros = 
+				});
+            },
+            error: function(error){
+                console.log(error);
+            }
+
+        });
+        return false;
+    });
+});
 
 $(document).on('change','#fileElem',function(){
 	if(this.files && this.files[0]){
@@ -16,81 +38,7 @@ $(document).on('change','#fileElem',function(){
 	  $('#preview').html(img);
 	}
 });
-
-/*function handleFileSelect(evt) {
-		var files = evt.target.files; // FileList object
-	
-		// Loop through the FileList and render image files as thumbnails.
-		for (var i = 0, f; f = files[i]; i++) {
-	
-		  // Only process image files.
-		  if (!f.type.match('image.*')) {
-			continue;
-		  }
-	
-		  var reader = new FileReader();
-	
-		  // Closure to capture the file information.
-		  reader.onload = (function(theFile) {
-			return function(e) {
-			  // Render thumbnail.
-			  $("#preview").html(['<img id="Img-subir"style="width: 234px;" src="', e.target.result,
-									'" title="', escape(theFile.name), '"/>'].join(''));
-			};
-		  })(f);
-	
-		  // Read in the image file as a data URL.
-		  reader.readAsDataURL(f);
-		}
-		document.getElementById('fileElem').addEventListener('change', handleFileSelect, false);
-	} */
-
-
-/*function handleFileSelect(evt) {
-
-	evt.stopPropagation();
-	evt.preventDefault();
-
-	var files = evt.dataTransfer.files; //FileList object.
-	console.log(files);
-
-	for (var i = 0, f; f = files[i]; i++) {
-
-		if (!f.type.match('image.*')) {
-			continue;
-		}
-		//lectura de objeto
-		var reader = new FileReader();
-
-		reader.onload = (function(theFile) {
-			return function(e) {
-
-			$("#preview").html(['<img id="Img-subir"style="width: 234px;" src="', e.target.result,
-									'" title="', escape(theFile.name), '"/>'].join(''));
-			};
-			
-		})(f);
-
-		ImgArchivo = f.name;
-		all = f;
-
-		//files=f.join('');
-		// Lea en el archivo de imagen como una URL de datos.
-	   reader.readAsDataURL(f);
-	}
-}
-
-function handleDragOver(evt) {
-	evt.stopPropagation();
-	evt.preventDefault();
-	evt.dataTransfer.dropEffect = 'copy'; // copia
-}
-
-// Configurar los dnd listeners.
-var dropZone = document.getElementById('drop_zone');
-dropZone.addEventListener('dragover', handleDragOver, false);
-dropZone.addEventListener('drop', handleFileSelect, false);*/
-
+/*
 $("#btn-AgregarPin").click(function () {
 
 	var cadena= $("#fileElem").val();
@@ -137,3 +85,4 @@ function subirACarpeta() {
 	})
 
 }
+*/

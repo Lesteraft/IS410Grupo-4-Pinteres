@@ -8,7 +8,7 @@
         
         fclose($archivo);
 
-        echo json_encode($respuesta);
+        //echo json_encode($respuesta);
     }
 
     

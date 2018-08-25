@@ -1,8 +1,5 @@
 <?php   
     include("Seguridad.php");
-    if(!isset($_GET['opcion'])){
-        header("location: Inicio.php?opcion=Inicio");
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -80,7 +77,7 @@
 
                     <div class="cir-tras-hov aa a13" id="btn-usuario" style="padding: 1px 5px;" >
                         <div class="ocultar">
-                            <img class="rounded-circle img-thumbnail" src="<?php echo $_SESSION["urlImage"];?>" style="width: 50px;"> <?php echo $_SESSION["Nombre"];?>
+                            <img class="rounded-circle img-thumbnail" src="<?php echo $_SESSION["urlImage"];?>" style="width: 50px; height: 50px"> <?php echo $_SESSION["Nombre"];?>
                         </div>
                         <div class="mostrar">
                             <img class="rounded-circle img-thumbnail" src="<?php echo $_SESSION["urlImage"];?>" style="width: 50px;">
@@ -156,47 +153,82 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <input type="file" id="fileElem" name="fileElem" accept="image/*" style="display:none" >
-                <button class="imagenSub" id="drop_zone">
-                    <output id="preview">
-                        <i class="fas fa-camera"></i><br>
-                        <div>Arrastra y suelta, o haz clic para cargar</div>
-                    </output>
-                </button>
-                <div style="margin-right: 24px;">
-                    <label for="native-content-link" >Nombre de la Imagen:</label><br>
-                    <input id="txt-id" class="Inputmodal form-control" type="url" placeholder="Añade la Id para este Pin"><br><br>
-                    <label for="native-content-description">Descripcion:</label><br>
-                    <textarea id="txt-descripcion" class="Inputmodal form-control" placeholder="Di algo más sobre este Pin" rows="6"></textarea>
-                </div>
-            </div>
-            
-            <div class="modal-footer">
-
-                <div class="btn-group" role="group" >
-                    <button type="button" class="btn btn-secondary" id="btn-cargarPin">Cargar Pin</button>
-                    <button type="button" class="btn btn-secondary" id="btn-guardardSitio">Guardar desde el sitio</button>
-                </div>
-
-                <div style="right: -350px; position:relative;">
-                    <button type="submit" class="btn btn-secondary" id="btn-AgregarPin">Listo</button>
-                    
-                </div>
-            </div>
+            <table>
+            <tr>
+                <td>
+                    <form id="frm-subirImagenPin" action="ajax/GuardarImagenPin.php" method="post" enctype="multipart/form-data">
+                        <div>    
+                            <div class="modal-body">  
+                                <button type="button" class="imagenSub" id="drop_zone">
+                                    <output id="preview">
+                                        <i class="fas fa-camera"></i><br>
+                                        <div>Arrastra y suelta, o haz clic para cargar</div>
+                                    </output>
+                                </button>
+                                <input type="file" id="fileElem" name="fileElem" style="display:none" >
+                            </div>
+                        </div>  
+                        <div class="btn-group" role="group" style="margin-left: auto; margin-right: auto;" >
+                            <button type="submit" class="btn btn-danger" id="btn-AgregarPin">Subir Imagen</button>  
+                            <button type="submit" class="btn btn-secundary" data-dismiss="modal">Cancelar y Cerrar</button>
+                        </div>
+                    </form> 
+                </td>
+                <td>
+                    <div style="margin-right: 0px;">
+                        <label for="native-content-link" >Nombre de la Imagen:</label><br>
+                        <input id="txt-NombreImagenPin" class="Inputmodal form-control" type="url" placeholder="Nombre a la Imagen"><br>
+                        <label for="native-content-description">Descripcion:</label><br>
+                        <textarea id="txt-descripcionPin" class="Inputmodal form-control" placeholder="Di algo más sobre este Pin" rows="3"></textarea>
+                        <br>Temas que aborda tu Pin:<br>
+                        <table class="table-striped">
+                            <tr>
+                                <td><label><input type="checkbox" value="Baleadas" name="chk-tema[]">Comics</label></td>
+                                <td><label><input type="checkbox" value="Sopa de mondongo" name="chk-tema[]">Gatos</label></td>
+                            </tr>
+                            <tr>
+                                <td><label><input type="checkbox" value="Queso" name="chk-tema[]">Arte</label></td>
+                                <td><label><input type="checkbox" value="Curiles" name="chk-tema[]">Fotografía</label></td>
+                            </tr>
+                            <tr>
+                                <td><label><input type="checkbox" value="Ella" name="chk-tema[]">Deportes</label></td>
+                                <td><label><input type="checkbox" value="Baleadas" name="chk-tema[]">Citas</label></td>
+                            </tr>
+                            <tr>
+                                <td><label><input type="checkbox" value="Sopa de mondongo" name="chk-tema[]">Perros</label></td>
+                                <td><label><input type="checkbox" value="Queso" name="chk-tema[]">Memes</label></td>
+                            </tr>
+                            <tr>
+                                <td><label><input type="checkbox" value="Curiles" name="chk-tema[]">Animales</label></td>
+                                <td><label><input type="checkbox" value="Ella" name="chk-tema[]">Anime y Manga</label></td>
+                            </tr>
+                            <tr>
+                                <td><label><input type="checkbox" value="Baleadas" name="chk-tema[]">Naturaleza</label></td>
+                                <td><label><input type="checkbox" value="Sopa de mondongo" name="chk-tema[]">Arquitectura</label></td>
+                            </tr>
+                            <tr>
+                                <td><label><input type="checkbox" value="Queso" name="chk-tema[]">Autos</label></td>
+                                <td><label><input type="checkbox" value="Curiles" name="chk-tema[]">Motos</label></td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            </table>
         </div>
     </div>
 </div>
 
 <div style="display: none" >
-    <input  style="display: none !important;" type="text" value="<?php echo $_GET['opcion']?>" id="OpcionActual">
+    <input  style="display: none !important;" type="text" value="<?php echo $_SESSION["PantallaAnterior"] ?>"id="OpcionActual">
 </div>
+
 
 <script src="js/jquery.min.js"></script>
 <script src="js/controlador_inicio.js"></script>
 <script src="js/controlador_modal.js"></script>
 <script src="jquery/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-    
+
 </body>
 </html>

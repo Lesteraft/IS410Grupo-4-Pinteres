@@ -1,52 +1,37 @@
 <?php
 session_start();
 $target_dir = "../img/Usuario/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$nombreArchivo = "IMG_".date(YmWdHis).".".pathinfo($_FILES["Imagen"]["name"], PATHINFO_EXTENSION);  
+$target_file = $target_dir . $nombreArchivo;
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-
-echo '<script>console.log("'.$target_file.'")</script>';
 // Compruebe si el archivo de imagen es una imagen real o una imagen falsa
 if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    $check = getimagesize($_FILES["Imagen"]["tmp_name"]);
     if($check !== false) {
-        echo "El archivo es una imagen - " . $check["mime"] . ".";
+        $respuesta["1"] =  "El archivo es una imagen - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
-        echo "El archivo no es una imagen.";
+        $respuesta["-1"] = "no pudo ser cargado";
         $uploadOk = 0;
     }
 }
-// Verifique si el archivo ya existe
-if (file_exists($target_file)) {
-    echo "Lo sentimos, el archivo ya existe.";
-    $uploadOk = 0;
-}
-// Verificar el tamaño del archivo
-if ($_FILES["fileToUpload"]["size"] > 5000000000) {
-    echo "Lo siento, tu archivo es demasiado grande.";
-    $uploadOk = 0;
-}
-// Permitir ciertos formatos de archivo
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
-    echo "Lo sentimos, solo se permiten archivos JPG, JPEG, PNG y GIF. Es demasiado largo.";
-    $uploadOk = 0;
-}
 // Compruebe si $uploadOk está configurado en 0 por un error
 if ($uploadOk == 0) {
-    echo "Lo sentimos, su archivo no fue cargado.";
+    echo json_encode($respuesta);
+    header("Location: ../Inicio.php?opcion=Usuario");
 // si todo está bien, intenta subir el archivo
 } else {
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        $_SESSION["urlImage"] = "img/Usuario/".basename( $_FILES["fileToUpload"]["name"]);
-        echo "El Archivo ".   $_SESSION["urlImage"]. " ha sido cargado";
-        header("Location: ../Inicio.php?opcion=Usuario");
+    if (move_uploaded_file($_FILES["Imagen"]["tmp_name"], $target_file)) {
+        $_SESSION["urlImage"] = "img/Usuario/".$nombreArchivo;
+        $_SESSION["PantallaAnterior"] = "Usuario";
+        echo json_encode($respuesta);
+        header("Location: ../Inicio.php");
+
     } else {
-        echo "Lo sentimos, hubo un error al cargar su archivo.";
+        echo json_encode($respuesta);
+        header("Location: ../Inicio.php?opcion=Usuario");
     }
 }
-
-
 ?>

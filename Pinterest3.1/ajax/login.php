@@ -12,6 +12,7 @@
             $_SESSION["urlImage"] = $Registro["urlImage"];
             $_SESSION["Email"] = $_POST["Email"];
             $_SESSION["Password"] = $_POST["Password"];
+            $_SESSION["PantallaAnterior"] = "Inicio";
             echo '{"codigo":0,"mensaje":"Usuario logueado con exito"}';
             exit();
         }

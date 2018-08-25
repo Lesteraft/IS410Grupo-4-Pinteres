@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     $archivo = fopen("../data/inicionuevo.json","r");
     $linea="";
     $imagenes=array();
@@ -9,6 +9,7 @@
         $imagenes[] = $registro;
     }
 
+    $_SESSION["PantallaAnterior"] = "Inicio";
     echo json_encode($imagenes);
 
     fclose($archivo);

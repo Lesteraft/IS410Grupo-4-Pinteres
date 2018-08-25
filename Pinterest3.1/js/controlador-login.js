@@ -27,7 +27,7 @@ $("#btn-cont").click(function(){
                     method: "POST",
                     success: function(respuesta){
                         console.log(respuesta);
-                        window.location = "../Inicio.php"
+                        window.location = "../Inicio.php?opcion=Inicio"
                     },
                     error: function(error){
                         console.log(error);
