@@ -10,9 +10,9 @@ function mostrarImagenes(){
             for (var i=0;i<respuesta.length;i++){
                  $("#CuerpoImgInicio").append(
                     `<a class="card" style="padding:8px; margin:3px; display: inline-block; position:relative;" id="${respuesta[i].id}">
-                        <img class="card-img-top" src="img/${respuesta[i].nombreImagen}">
+                        <img class="card-img-top" src="${respuesta[i].urlImagen}">
                         <div class="card-body row">
-                            <h4 class="card-text letraNav">${respuesta[i].nombreImagen}</h4>
+                            <h4 class="card-text letraNav">${respuesta[i].Nombre}</h4>
                             <button type="button" class="btn btn-light letraNav rounded-circle btn-pin" style=" padding:6px; position: relative;left:90px; width: 24px;height: 24px;" >
                                 <i class="fas fa-ellipsis-h" style="align-content: center"></i> 
                             </button>
@@ -27,7 +27,6 @@ function mostrarImagenes(){
         }
 	});
 }
-
 
 function EntradaMouse(cantidaCard) {
     console.log(cantidaCard);

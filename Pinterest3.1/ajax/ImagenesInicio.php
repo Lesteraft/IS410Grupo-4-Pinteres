@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $archivo = fopen("../data/inicionuevo.json","r");
+    $archivo = fopen("../data/inicio.json","r");
     $linea="";
     $imagenes=array();
     

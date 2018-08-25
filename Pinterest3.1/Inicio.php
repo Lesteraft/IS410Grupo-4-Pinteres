@@ -31,7 +31,7 @@
                         <div style="padding: 5px 0px; margin-right: -32px;">
                             <i class="fas fa-search faz" style="font-size: 17px !important"></i>
                         </div>
-                        <input type="text" class="form-control" placeholder="Buscar" id="txt-buscar" aria-label="Username" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="" id="txt-buscar" aria-label="Username" aria-describedby="basic-addon1">
                     </div>            
                 </div>
                 
@@ -170,7 +170,7 @@
                         </div>  
                         <div class="btn-group" role="group" style="margin-left: auto; margin-right: auto;" >
                             <button type="submit" class="btn btn-danger" id="btn-AgregarPin">Subir Imagen</button>  
-                            <button type="submit" class="btn btn-secundary" data-dismiss="modal">Cancelar y Cerrar</button>
+                            <button type="button" class="btn btn-secundary" data-dismiss="modal">Cancelar y Cerrar</button>
                         </div>
                     </form> 
                 </td>
@@ -183,32 +183,32 @@
                         <br>Temas que aborda tu Pin:<br>
                         <table class="table-striped">
                             <tr>
-                                <td><label><input type="checkbox" value="Baleadas" name="chk-tema[]">Comics</label></td>
-                                <td><label><input type="checkbox" value="Sopa de mondongo" name="chk-tema[]">Gatos</label></td>
+                                <td><label><input type="checkbox" value="Comics" name="chk-tema[]">Comics</label></td>
+                                <td><label><input type="checkbox" value="Gatos" name="chk-tema[]">Gatos</label></td>
                             </tr>
                             <tr>
-                                <td><label><input type="checkbox" value="Queso" name="chk-tema[]">Arte</label></td>
-                                <td><label><input type="checkbox" value="Curiles" name="chk-tema[]">Fotografía</label></td>
+                                <td><label><input type="checkbox" value="Arte" name="chk-tema[]">Arte</label></td>
+                                <td><label><input type="checkbox" value="Fotografía" name="chk-tema[]">Fotografía</label></td>
                             </tr>
                             <tr>
-                                <td><label><input type="checkbox" value="Ella" name="chk-tema[]">Deportes</label></td>
-                                <td><label><input type="checkbox" value="Baleadas" name="chk-tema[]">Citas</label></td>
+                                <td><label><input type="checkbox" value="Deportes" name="chk-tema[]">Deportes</label></td>
+                                <td><label><input type="checkbox" value="Citas" name="chk-tema[]">Citas</label></td>
                             </tr>
                             <tr>
-                                <td><label><input type="checkbox" value="Sopa de mondongo" name="chk-tema[]">Perros</label></td>
-                                <td><label><input type="checkbox" value="Queso" name="chk-tema[]">Memes</label></td>
+                                <td><label><input type="checkbox" value="Perros" name="chk-tema[]">Perros</label></td>
+                                <td><label><input type="checkbox" value="Memes" name="chk-tema[]">Memes</label></td>
                             </tr>
                             <tr>
-                                <td><label><input type="checkbox" value="Curiles" name="chk-tema[]">Animales</label></td>
-                                <td><label><input type="checkbox" value="Ella" name="chk-tema[]">Anime y Manga</label></td>
+                                <td><label><input type="checkbox" value="Animales" name="chk-tema[]">Animales</label></td>
+                                <td><label><input type="checkbox" value="Anime y Manga" name="chk-tema[]">Anime y Manga</label></td>
                             </tr>
                             <tr>
-                                <td><label><input type="checkbox" value="Baleadas" name="chk-tema[]">Naturaleza</label></td>
-                                <td><label><input type="checkbox" value="Sopa de mondongo" name="chk-tema[]">Arquitectura</label></td>
+                                <td><label><input type="checkbox" value="Naturaleza" name="chk-tema[]">Naturaleza</label></td>
+                                <td><label><input type="checkbox" value="Arquitectura" name="chk-tema[]">Arquitectura</label></td>
                             </tr>
                             <tr>
-                                <td><label><input type="checkbox" value="Queso" name="chk-tema[]">Autos</label></td>
-                                <td><label><input type="checkbox" value="Curiles" name="chk-tema[]">Motos</label></td>
+                                <td><label><input type="checkbox" value="Autos" name="chk-tema[]">Autos</label></td>
+                                <td><label><input type="checkbox" value="Motos" name="chk-tema[]">Motos</label></td>
                             </tr>
                         </table>
                     </div>
@@ -220,14 +220,15 @@
 </div>
 
 <div style="display: none" >
-    <input  style="display: none !important;" type="text" value="<?php echo $_SESSION["PantallaAnterior"] ?>"id="OpcionActual">
+    <input style="display: none !important;" type="text" value="<?php echo $_SESSION["PantallaAnterior"] ?>"id="OpcionActual">
 </div>
 
-
+<script src="jquery/jquery.min.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/controlador_inicio.js"></script>
 <script src="js/controlador_modal.js"></script>
 <script src="jquery/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
 </body>
