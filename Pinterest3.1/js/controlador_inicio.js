@@ -1,6 +1,6 @@
 
 function mostrarImagenes(){
-	$("#contenidoTotal").html('<div class="columna" style="margin:3px;padding-top:24px;" id="CuerpoImgInicio"></div>');
+	$("#contenidoTotal").html('<div class="columna" style="margin:5px;padding-top:24px; max-width: 100%" id="CuerpoImgInicio"></div>');
 	$.ajax({
         url:"ajax/ImagenesInicio.php",
         dataType:"json",
@@ -8,7 +8,7 @@ function mostrarImagenes(){
 			 console.log(respuesta);
             for (var i=0;i<respuesta.length;i++){
                  $("#CuerpoImgInicio").append(
-                    `<a class="card" style="padding:0px; margin:0px; display: inline-block; position:relative;" id="${respuesta[i].id}">
+                    `<a class="card" style="padding:8px; margin:3px; display: inline-block; position:relative;" id="${respuesta[i].id}">
                         <img class="card-img-top" src="${respuesta[i].urlImagen}">
                         <div class="card-body row">
                             <h4 class="card-text letraNav">${respuesta[i].Nombre}</h4>
@@ -27,7 +27,7 @@ function mostrarImagenes(){
 	});
 }
 
-function EntradaMouse(cantidaCard) {
+/*function EntradaMouse(cantidaCard) {
     console.log(cantidaCard);
 
     for (let i = 1; i <= cantidaCard; i++) {
@@ -37,7 +37,7 @@ function EntradaMouse(cantidaCard) {
             $("#"+i+" img").css("-webkit-filter","brightness(50%)","webkit-filter",
             "brightness(50%)");
             $("#btn-"+i).css({"display": 'block'});//
-            /*document.getElementById("#"+i).innerHTML += "<a type='button' class='btn btn-danger'>Danger</a>";*/
+            /*document.getElementById("#"+i).innerHTML += "<a type='button' class='btn btn-danger'>Danger</a>";
 
         });
 
@@ -48,7 +48,7 @@ function EntradaMouse(cantidaCard) {
         });    
     }
     
-}
+}*/
 
 $("#btn-cerrar-sesion").click(function(){
     console.log("se cerrará la sesion");
@@ -87,6 +87,7 @@ $(document).ready(function(){
         $("#"+$(this).attr("id")+" img").css("-webkit-filter","brightness(50%)","webkit-filter",
             "brightness(50%)");
     });
+
     $(".card").mouseleave(function(){
         $("#"+$(this).attr("id")).css("background-color","transparent");
         $("#"+$(this).attr("id")+" img").css("-webkit-filter","brightness(100%)","webkit-filter",
@@ -350,5 +351,194 @@ function PeticionTemasInteres(){
         error: function(error){
             console.log(error);
         }
+    });
+}
+
+function MostrarPinFiltros(){
+
+    $("#contenidoTotal").html("");
+    var parametro = "id=" +$(".card").attr('id');
+	$.ajax({
+
+        url:"ajax/buscarImagen.php",
+        method:"POST",
+        data:parametro,
+        dataType:"json",
+        success:function(respuesta){
+			console.log(respuesta);
+			$("#contenidoTotal").append(
+                `<div id="main">
+                    <img class="card-img-top" src="${respuesta[i].urlImagen}" id="${respuesta[i].i}"><br>
+                    <h4 class="card-text letraNav">${respuesta[i].Nombre}</h4><br>
+                    <hr>
+                    <canvas id="canvas" width="400px" height="300"></canvas>
+                    <hr>
+                </div>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button id="btn-bw" type="button" class="btn btn-secondary">Blanco y Negro</button>
+                    <button id="btn-invert" type="button" class="btn btn-secondary">Invertir</button>
+                    <button id="btn-sepia" type="button" class="btn btn-secondary">Sepia</button>
+                    <button id="btn-contrast" type="button" class="btn btn-secondary">Contraste</button>
+                    <button id="btn-save" type="button" class="btn btn-secondary">Guardar</button>
+                    
+                </div>
+     
+                <script>
+
+                    window.onload = function() {
+                        app.loadPicture();
+                        $("#btn-bw").click(function(){
+                            app.filters.bw();
+                        });
+
+                        $("#btn-invert").click(function(){
+                            app.filters.invert();
+                        });
+
+                        $("#btn-sepia").click(function(){
+                            app.filters.sepia();
+                        });
+                        $("#btn-contrast").click(function(){
+                            app.filters.contrast();
+                        });
+
+                        $("#btn-save").click(function(){
+                            app.save();
+                        });
+                    };
+
+                        var app = ( function () {
+                            var canvas = document.getElementById( 'canvas' ),
+                            context = canvas.getContext( '2d' ),
+        
+                        // API
+                        public = {};
+        
+                        public.loadPicture = function () {
+                            var imageObj = new Image();
+                            imageObj.src = ${respuesta[i].urlImagen};
+        
+                            imageObj.onload = function () {
+                                context.drawImage( imageObj, 0, 0 );
+                            }
+                        };
+        
+                        public.getImgData = function () {
+                            return context.getImageData( 0, 0, canvas.width, canvas.height );
+                        };
+        
+                        public.filters = {};
+        
+                        public.filters.bw = function () {
+                            var imageData = app.getImgData(),
+                                pixels = imageData.data,
+                                numPixels = imageData.width * imageData.height;
+        
+                            for ( var i = 0; i < numPixels; i++ ) {
+                                var r = pixels[ i * 4 ];
+                                var g = pixels[ i * 4 + 1 ];
+                                var b = pixels[ i * 4 + 2 ];
+        
+                                var grey = ( r + g + b ) / 3;
+        
+                                pixels[ i * 4 ] = grey;
+                                pixels[ i * 4 + 1 ] = grey;
+                                pixels[ i * 4 + 2 ] = grey;
+                            }
+        
+                            context.putImageData( imageData, 0, 0 );
+                        };
+                        
+        
+                        public.filters.invert = function () {
+                            var imageData = app.getImgData(),
+                                pixels = imageData.data,
+                                numPixels = imageData.width * imageData.height;
+        
+                            for ( var i = 0; i < numPixels; i++ ) {
+                                var r = pixels[ i * 4 ];
+                                var g = pixels[ i * 4 + 1 ];
+                                var b = pixels[ i * 4 + 2 ];
+        
+                                pixels[ i * 4 ] = 255 - r;
+                                pixels[ i * 4 + 1 ] = 255 - g;
+                                pixels[ i * 4 + 2 ] = 255 - b;
+                            }
+        
+                            context.putImageData( imageData, 0, 0 );
+                        };
+        
+                        public.filters.sepia = function () {
+                            var imageData = app.getImgData(),
+                                pixels = imageData.data,
+                                numPixels = imageData.width * imageData.height;
+        
+                            for ( var i = 0; i < numPixels; i++ ) {
+                                var r = pixels[ i * 4 ];
+                                var g = pixels[ i * 4 + 1 ];
+                                var b = pixels[ i * 4 + 2 ];
+        
+                                pixels[ i * 4 ] = 255 - r;
+                                pixels[ i * 4 + 1 ] = 255 - g;
+                                pixels[ i * 4 + 2 ] = 255 - b;
+        
+                                pixels[ i * 4 ] = ( r * .393 ) + ( g *.769 ) + ( b * .189 );
+                                pixels[ i * 4 + 1 ] = ( r * .349 ) + ( g *.686 ) + ( b * .168 );
+                                pixels[ i * 4 + 2 ] = ( r * .272 ) + ( g *.534 ) + ( b * .131 );
+                            }
+        
+                            context.putImageData( imageData, 0, 0 );
+                        };
+        
+                        public.filters.contrast = function ( contrast ) {
+                            var imageData = app.getImgData(),
+                                pixels = imageData.data,
+                                numPixels = imageData.width * imageData.height,
+                                factor;
+        
+                            contrast || ( contrast = 100 ); // Default value
+        
+                            factor = ( 259 * ( contrast + 255 ) ) / ( 255 * ( 259 - contrast ) );
+        
+                            for ( var i = 0; i < numPixels; i++ ) {
+                                var r = pixels[ i * 4 ];
+                                var g = pixels[ i * 4 + 1 ];
+                                var b = pixels[ i * 4 + 2 ];
+        
+                                pixels[ i * 4 ] = factor * ( r - 128 ) + 128;
+                                pixels[ i * 4 + 1 ] = factor * ( g - 128 ) + 128;
+                                pixels[ i * 4 + 2 ] = factor * ( b - 128 ) + 128;
+                            }
+        
+                            context.putImageData( imageData, 0, 0 );
+                        };
+        
+        
+                        public.save = function () {
+                            var link = window.document.createElement( 'a' ),
+                                url = canvas.toDataURL(),
+                                filename = 'screenshot.jpg';
+        
+                            link.setAttribute( 'href', url );
+                            link.setAttribute( 'download', filename );
+                            link.style.visibility = 'hidden';
+                            window.document.body.appendChild( link );
+                            link.click();
+                            window.document.body.removeChild( link );
+                        };
+        
+        
+                        return public;
+                    } () );
+        
+        
+                </script>`
+			);
+			
+		},
+        error:function(error){
+            console.log(error);
+		}
+		
     });
 }
