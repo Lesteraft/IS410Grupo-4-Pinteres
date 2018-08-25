@@ -1,4 +1,3 @@
-mostrarImagenes();
 
 function mostrarImagenes(){
 	$("#contenidoTotal").html('<div class="columna" style="margin:3px;padding-top:24px;" id="CuerpoImgInicio"></div>');
@@ -65,7 +64,7 @@ $(document).ready(function(){
            break;
        }
        case "Inicio": {
-            mostrarImagenes();
+            PeticionTemasInteres()
             break;
        }
        case "Explorar": {
@@ -77,7 +76,7 @@ $(document).ready(function(){
             break;
        }
        default:{
-            mostrarImagenes();
+            PeticionTemasInteres()  
             break;
        }
    }

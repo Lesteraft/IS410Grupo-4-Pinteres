@@ -22,7 +22,7 @@ function validar(){
                 document.getElementById("txt-password").classList.remove("is-invalid");
                 document.getElementById("txt-password").classList.add("is-valid");
                 
-                var parametros = "Email="+$("#txt-email").val()+"&Password="+$("#txt-password").val()+"&TipoUsuario=personal&urlImage=data/usuarios/perfiles/imagenes/vacio.png$chk-tema=";
+                var parametros = "Email="+$("#txt-email").val()+"&Password="+$("#txt-password").val()+"&TipoUsuario=personal&urlImage=data/usuarios/perfiles/imagenes/vacio.png"+"&"+$('input[name="chk-tema[]"]:checked').serialize();;
                 console.log(parametros);
 
                 $.ajax({
@@ -90,7 +90,7 @@ function validar2(){
                     var parametros = "Email="+$("#txt-email2").val()+"&Password="+
                                     $("#txt-password2").val()+"&NombreEmpresa="+
                                     $("#txt-nombre-empresa").val()+"&TipoUsuario=empresarial"+
-                                    "&Usuario="+$("#lista-desplegable-empresa").val();
+                                    "&Usuario="+$("#lista-desplegable-empresa").val()+"&"+$('input[name="chk-tema[]"]:checked').serialize();
                     console.log(parametros);
                     
                     $.ajax({

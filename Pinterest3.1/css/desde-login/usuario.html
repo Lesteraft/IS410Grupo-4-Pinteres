@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pinterest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../img/login/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/estilos-usuario.css">
+    <link rel="stylesheet" href="../fuentes/css/all.css">
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body>
+    <header id="header-pint">
+            <div class="navbar">
+
+                <div class="ocultar">
+                    <img src="../img/login/favicon.png">
+                </div>
+    
+                <div style="flex: 1 1 auto;" class="a12 ocultar">
+                    <div class="input-group mb-3 ocultar" id="input-navbar">
+                        <div style="padding: 5px 0px; margin-right: -38px;">
+                            <i class="fas fa-search faz"></i>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Buscar" id="txt-buscar" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>            
+                </div>
+                
+                <div class="navbar" id="botones-navbar">
+
+                    <div class="mostrar">
+                        <img src="../img/login/favicon.png">
+                    </div>
+
+                    <div class="mostrar cir-tras-hov" style="text-align: center; flex: none; margin-left: 10px;">
+                        <i class="fas fa-search faz"></i>
+                    </div> 
+
+                    <div class="cir-tras-hov ocultar">
+                        <div>
+                            Inicio
+                        </div>
+                    </div>
+                    
+                    <div class="cir-tras-hov">
+                            <div class="ocultar">
+                                Siguiendo
+                            </div>
+                            <div class="mostrar">
+                                <i class="fas fa-user-friends faz"></i>
+                            </div>
+                    </div>
+                    <div class="cir-tras-hov">
+                        <div class="ocultar">
+                            Explorar
+                        </div>
+                        <div class="mostrar">
+                            <i class="fas fa-compass faz"></i>
+                        </div>
+                    </div>
+                    <div class="cir-tras-hov aa a13" >
+                        <div class="ocultar">
+                            <img class="rounded-circle img-thumbnail" src="../img/Usuario/2.jpg" style="width: 30px;"> Lester
+                        </div>
+                        <div class="mostrar">
+                            <img class="rounded-circle img-thumbnail" src="../img/Usuario/2.jpg" style="width: 30px;">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="dropleftdown cir-tras-hov aa a13" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="" id="dropdownMenuMensajes"  >     
+                                <i class="fas fa-comment-dots faz"></i>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuMensajes">
+                                    <div class="tcdd" style="right: 33%;"><svg width="24" height="24"><path d="M0 24 L12 12 L24 24"></path></svg></div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="dropleftdown cir-tras-hov aa a13" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                            <div class="" id="dropdownMenuNotificaciones" >
+                                    <i class="fas fa-bell faz"></i>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuNotificaciones">
+                                    <div class="tcdd" style="right: 18%;"><svg width="24" height="24"><path d="M0 24 L12 12 L24 24"></path></svg></div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="dropleftdown cir-tras-hov aa a13" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="" id="dropdownMenuOpciones"  >
+                                <i class="fas fa-ellipsis-h faz"></i>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuOpciones">
+                                    <div class="tcdd"><svg width="24" height="24"><path d="M0 24 L12 12 L24 24"></path></svg></div>
+                                    <div class="dropdown-item-text bdbxsi"><h4>Consigue una cuenta para empresas gratuita</h4></div>
+                                    <div class="dropdown-item-text bdbxsi">Desbloquea herramientas profesionales como analytics y anuncios</div>
+                                    <div class="bdbxsi"><button type="button" id="btn-actualizar-ahora" >Actualizar ahora</button></div>
+                                    <div class="dropdown-item bdbxsi"></div>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Editar Ajustes</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Obtener ayuda</a>
+                                    <a class="dropdown-item" href="#">Ver términos y privacidad</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Cerrar sesión</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <hr>
+    </header>
+
+    <section>
+        <div id="contenedorDePines">
+            <main class="container" style=" margin: 5px; padding: 65px 0px 0px 0px; max-width: 100%;">
+                <div >
+                    <div style="padding-left: 300px;">
+                        <h3 style="color: #333; font-size: 48px; margin-top: 50px; " class="letraNav">Lester</h3>
+                    </div>
+                    <div class="btn-group btn-group-lg" role="group" aria-label="" style="padding-left: 250px; margin-top: 40px;">
+                            <button type="button " class="btn  btn-light letraNav " id="btn-Explorador">Tendencias</button>
+                            <button type="button " class="btn  btn-light letraNav " id="btn-Explorador">Citas célebres</button>
+                            <button type="button " class="btn  btn-light letraNav " id="btn-Explorador">Arte</button>
+                            <button type="button " class="btn  btn-light letraNav " id="btn-Explorador">Viajes</button>
+                            <button type="button " class="btn  btn-light letraNav " id="btn-Explorador">Humor</button>
+                            <button type="button " class="btn  btn-light letraNav " id="btn-Explorador">Comida</button>
+                            <button type="button " class="btn  btn-light letraNav " id="btn-Explorador">Hogar</button>
+                            <button type="button " class="btn  btn-light letraNav " id="btn-Explorador">Belleza</button>
+                            <button type="button " class="btn  btn-light letraNav " id="btn-Explorador">Mas</button>
+                    </div>
+                </div>
+        
+                <div class="row" style=" margin: 0px; padding: 20px 0px 0px 0px; max-width: 100%;  ">
+                    <div class="card columna " style="max-width: 260px; padding:8px; " id="Id1">
+                        <img class="card-img-top" src="../img/FB_IMG_1491192200963.jpg" alt="Card image cap" id="" >
+                        <div class="card-body row">
+                            <h4 class="card-text letraNav">Card title</h4>
+                            <button type="button" class="btn btn-light letraNav rounded-circle" style=" padding:6px; position: relative;left:135px; width: 24px;height: 24px;" >
+                                <i class="fas fa-ellipsis-h" style="align-content: center"></i> </button>
+                            </button>
+                        </div>
+                    </div>
+        
+                    <div class="card columna" style="max-width: 260px; padding:8px; " id="Id1">
+                        <img class="card-img-top" src="../img/FB_IMG_1510367508132.jpg" alt="Card image cap" id="" >
+                        <div class="card-body row">
+                            <h4 class="card-text letraNav">Card title</h4>
+                            <button type="button" class="btn btn-light letraNav rounded-circle" style=" padding:6px; position: relative;left:135px; width: 24px;height: 24px;" >
+                                <i class="fas fa-ellipsis-h" style="align-content: center"></i> </button>
+                            </button>
+                        </div>
+                    </div>
+        
+                    <div class="card columna" style="max-width: 260px; padding:8px; " id="Id1">
+                        <img class="card-img-top" src="../img/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" >
+                        <div class="card-body row">
+                            <h4 class="card-text letraNav">Card title</h4>
+                            <button type="button" class="btn btn-light letraNav rounded-circle" style=" padding:6px; position: relative;left:135px; width: 24px;height: 24px;" >
+                                <i class="fas fa-ellipsis-h" style="align-content: center"></i> </button>
+                            </button>
+                        </div>
+                    </div>
+            
+                    <div class="card columna" style="max-width: 260px; padding:8px; " id="Id1">
+                        <img class="card-img-top" src="../img/FB_IMG_1499988400968.jpg" alt="Card image cap" id="" >
+                        <div class="card-body row">
+                            <h4 class="card-text letraNav">Card title</h4>
+                            <button type="button" class="btn btn-light letraNav rounded-circle" style=" padding:6px; position: relative;left:135px; width: 24px;height: 24px;" >
+                                <i class="fas fa-ellipsis-h" style="align-content: center"></i> </button>
+                            </button>
+                        </div>
+                    </div>
+            
+                    <div class="card columna" style="max-width: 260px; padding:8px; " id="Id1">
+                        <img class="card-img-top" src="../img/FB_IMG_1491192200963.jpg" alt="Card image cap" id="" >
+                        <div class="card-body row">
+                            <h4 class="card-text letraNav">Card title</h4>
+                            <button type="button" class="btn btn-light letraNav rounded-circle" style=" padding:6px; position: relative;left:135px; width: 24px;height: 24px;" >
+                                <i class="fas fa-ellipsis-h" style="align-content: center"></i> </button>
+                            </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </section>
+    
+    <script src="../jquery/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

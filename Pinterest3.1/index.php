@@ -53,7 +53,7 @@
                                                     </div>
                                                     <div id="botones" >
                                                             <div>
-                                                                <button id="btn-cont" type="button" onclick = "validar()">Continuar</button>
+                                                                <button id="btn-cont"type="button" data-toggle="modal" data-target="#exampleModal">Continuar</button>
                                                             </div>
                                                             <div style="text-align: center; font-size: 15px; font-weight: bold; color: rgb(100,100,100); overflow: hidden;">
                                                                 <p style="margin-top: 5px; margin-bottom: 10px">o</p> 
@@ -246,6 +246,49 @@
             </div>
         </div> 
     </div> 
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Una Última cosa! Dinos tus temas de interés</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">  
+                    <table class="table" >
+                        <tr class="table-danger">
+                            <td><label><input type="checkbox" value="Comics" name="chk-tema[]">Comics</label></td>
+                            <td><label><input type="checkbox" value="Gatos" name="chk-tema[]">Gatos</label></td>
+                            <td><label><input type="checkbox" value="Perros" name="chk-tema[]">Perros</label></td>
+                            <td><label><input type="checkbox" value="Memes" name="chk-tema[]">Memes</label></td>
+                            <td><label><input type="checkbox" value="Autos" name="chk-tema[]">Autos</label></td>
+                        </tr>
+                        <tr >
+                            <td><label><input type="checkbox" value="Arte" name="chk-tema[]">Arte</label></td>
+                            <td><label><input type="checkbox" value="Fotografía" name="chk-tema[]">Fotografía</label></td>
+                            <td><label><input type="checkbox" value="Animales" name="chk-tema[]">Animales</label></td>
+                            <td><label><input type="checkbox" value="Anime y Manga" name="chk-tema[]">Anime y Manga</label></td>
+                            <td><label><input type="checkbox" value="Motos" name="chk-tema[]">Motos</label></td>
+                        </tr>
+                        <tr class="table-danger">
+                            <td><label><input type="checkbox" value="Deportes" name="chk-tema[]">Deportes</label></td>
+                            <td><label><input type="checkbox" value="Citas" name="chk-tema[]">Citas</label></td>
+                            <td><label><input type="checkbox" value="Naturaleza" name="chk-tema[]">Naturaleza</label></td>
+                            <td><label><input type="checkbox" value="Arquitectura" name="chk-tema[]">Arquitectura</label></td>
+                            <td><label><input type="checkbox" value="Famosos" name="chk-tema[]">Famosos</label></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger"  onclick = "validar()">Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
 
     <script src="jquery/jquery.min.js"></script>
     <script src="js/controlador-signup.js"></script>  
