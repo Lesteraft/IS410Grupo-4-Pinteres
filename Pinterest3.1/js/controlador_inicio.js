@@ -146,7 +146,7 @@ function mostrarImagenesExplorar(){
                     `<a class="card" style="padding:8px; margin:3px; display: inline-block;" id="${respuesta[i].id}">
                         <img class="card-img-top" src="${respuesta[i].urlImagen}"  >
                         <div class="card-body row">
-                            <h4 class="card-text letraNav">${respuesta[i].nombreImagen}</h4>
+                            <h4 class="card-text letraNav">${respuesta[i].Nombre}</h4>
                             <button type="button" class="btn btn-light letraNav rounded-circle btn-pin" style=" padding:6px; position: relative;left:90px; width: 24px;height: 24px;" >
                                 <i class="fas fa-ellipsis-h" style="align-content: center"></i> </button>
                             </button>
@@ -299,7 +299,6 @@ function mostrarPantallaSiguiendo(){
         }
     });
 }
-
 
 function PeticionTemasInteres(){
     $.ajax({
