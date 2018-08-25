@@ -282,7 +282,7 @@ function mostrarPantallaSiguiendo(){
                         );
                         for (var j=0 ; j<respuesta.length ; j++) {
                             $("#ImagenesSiguiendo").append(
-                                `<img class="rounded-circle" style="width: 56px; height: 56px; " src="${respuesta[i].urlImagen}" alt="Card image cap" id="" >`
+                                `<img class="rounded-circle" style="width: 56px; height: 56px; " src="${respuesta[j+1].urlImagen}" alt="Card image cap" id="" >`
                             );
                         }
                         
