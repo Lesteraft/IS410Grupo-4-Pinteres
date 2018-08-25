@@ -9,7 +9,7 @@ function mostrarImagenes(){
 			 console.log(respuesta);
             for (var i=0;i<respuesta.length;i++){
                  $("#CuerpoImgInicio").append(
-                    `<a class="card" style="padding:8px; margin:3px; display: inline-block; position:relative;" id="${respuesta[i].id}">
+                    `<a class="card" style="padding:0px; margin:0px; display: inline-block; position:relative;" id="${respuesta[i].id}">
                         <img class="card-img-top" src="${respuesta[i].urlImagen}">
                         <div class="card-body row">
                             <h4 class="card-text letraNav">${respuesta[i].Nombre}</h4>
@@ -123,7 +123,8 @@ $("#btn-siguiendo").click(function(){
 });
 
 $("#btn-inicio").click(function(){
-    mostrarImagenes();
+    // mostrarImagenes();
+    PeticionTemasInteres();
 });
 
 $("#btn-explorar").click(function(){
@@ -136,18 +137,15 @@ function mostrarImagenesExplorar(){
 
 	$("#CuerpoImgEplorar").html("");
 
-	$.ajax({
-
-        url:"ajax/ImagenesExplorar.php",
+    $.ajax({
+        url:"ajax/ImagenesInicio.php",
         dataType:"json",
         success: function(respuesta){
-			 console.log(respuesta)
-
+			 console.log(respuesta);
             for (var i=0;i<respuesta.length;i++){
-
-                 $("#CuerpoImgEplorar").append(
+                $("#CuerpoImgEplorar").append(
                     `<a class="card" style="padding:8px; margin:3px; display: inline-block;" id="${respuesta[i].id}">
-                        <img class="card-img-top" src="img/${respuesta[i].nombreImagen}"  >
+                        <img class="card-img-top" src="${respuesta[i].urlImagen}"  >
                         <div class="card-body row">
                             <h4 class="card-text letraNav">${respuesta[i].nombreImagen}</h4>
                             <button type="button" class="btn btn-light letraNav rounded-circle btn-pin" style=" padding:6px; position: relative;left:90px; width: 24px;height: 24px;" >
@@ -157,8 +155,7 @@ function mostrarImagenesExplorar(){
                         <button type="button" class="btn btn-danger" style="display:none">Danger</button>
                     </a>`
                  );
-			}  
-		
+            }  
         },
         error:function(error){
             console.log(error);
@@ -168,7 +165,6 @@ function mostrarImagenesExplorar(){
 
 
 $("#btn-usuario").click(function(){
-    $("#OpcionActual").val("Usuario");
     mostrarPantallaUsuario();
 });
 
@@ -232,7 +228,7 @@ function mostrarPantallaUsuario(){
                 <div class="modal-body">
                     <img style="width: 250px; height: 250px" class="rounded-circle" src="${respuesta.urlImage}" alt="15px">
                 </div>
-                <form id="frm-subirImagen" action="ajax/subirImagen.php" method="post" enctype="multipart/form-data">
+                <form id="frm-subirImagen" action="ajax/subirImagenPerfil.php" method="post" enctype="multipart/form-data">
                     <input type="file" value="Cargar Imagen" name="Imagen" id="fileToUpload">
                     <div class="modal-footer">
                     <div>
@@ -253,23 +249,108 @@ function mostrarPantallaUsuario(){
 }
 
 function mostrarPantallaSiguiendo(){
-    $("#contenidoTotal").html(
-    `<main class="" style=" margin: 5px; padding: 0px 0px 0px 0px; max-width: 100%;">
-        <div style=" margin: 0px 430px; position:center; text-align:left">
-            <h4 style="color: #333; font-size: 36px; margin-top: 50px; line-height: 1.2; letter-spacing: -.4px; " class="letraNav">Sigue a personas con gustos como los tuyos para ver qué ideas nuevas y originales descubren</h4>
-            <div class="row" style="margin: 0px 0px; position:absolute;">
-                <img class="rounded-circle" style="width: 56px; height: 56px; " src="img/PinImg/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" >
-                <img class="rounded-circle" style="width: 56px; height: 56px; " src="img/PinImg/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" > 
-                <img class="rounded-circle" style="width: 56px; height: 56px; " src="img/PinImg/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" >
-                <img class="rounded-circle" style="width: 56px; height: 56px; " src="img/PinImg/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" >
-                <img class="rounded-circle" style="width: 56px; height: 56px; " src="img/PinImg/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" >
-                <img class="rounded-circle" style="width: 56px; height: 56px; " src="img/PinImg/FB_IMG_1487907127539.jpg" alt="Card image cap" id="">
-                <img class="rounded-circle" style="width: 56px; height: 56px; " src="img/PinImg/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" >
-                <img class="rounded-circle" style="width: 56px; height: 56px; " src="img/PinImg/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" >
-                <img class="rounded-circle" style="width: 56px; height: 56px; " src="img/PinImg/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" >
-                <img class="rounded-circle" style="width: 56px; height: 56px; " src="img/PinImg/FB_IMG_1487907127539.jpg" alt="Card image cap" id="" >
-            </div>
-            <button type="button" class="btn btn-danger" style="max-width: 100%; margin-top: 65px">Ver a quién seguir</button>
-        </div>
-    </main>`);
+    $.ajax({
+        url: "ajax/gustos.php",
+        dataType: "json",
+        success: function(respuesta){
+            console.log(respuesta.Temas);
+            if(respuesta.codigo == 1){
+                var parametros = "";
+                for(var i=0;i<(respuesta.Temas.length+1) ; i++){
+                    if(i==0){
+                        parametros ="Tamaño="+(respuesta.Temas.length+1)+"&";
+                    }else{
+                        parametros = parametros + "Tema"+(i-1)+"="+respuesta.Temas[i-1]+"&";
+                    }
+                }
+                console.log(parametros);
+                $.ajax({
+                    url: "ajax/BuscarImgTemas.php",
+                    data: parametros,
+                    method: "POST",
+                    dataType: "json",
+                    success: function(respuesta){
+                        console.log(respuesta);
+                        $("#contenidoTotal").html(
+                            `<main class="" style=" margin: 5px; padding: 0px 0px 0px 0px; max-width: 100%;">
+                                <div style=" margin: 0px 430px; position:center; text-align:left">
+                                    <h4 style="color: #333; font-size: 36px; margin-top: 50px; line-height: 1.2; letter-spacing: -.4px; " class="letraNav">Sigue a personas con gustos como los tuyos para ver qué ideas nuevas y originales descubren</h4>
+                                    <div class="row" style="margin: 0px 0px; position:absolute;" id="ImagenesSiguiendo">
+                                    </div>
+                                    <button type="button" class="btn btn-danger" style="max-width: 100%; margin-top: 65px" id="SeguirAMas">Ver a quién seguir</button>
+                                </div>
+                            </main>`
+                        );
+                        for (var j=0 ; j<respuesta.length ; j++) {
+                            $("#ImagenesSiguiendo").append(
+                                `<img class="rounded-circle" style="width: 56px; height: 56px; " src="${respuesta[i].urlImagen}" alt="Card image cap" id="" >`
+                            );
+                        }
+                        
+                    },
+                    error: function(error){
+                        console.log(error);
+                    }
+                });
+                
+            }
+        },
+        error: function(error){
+            console.log(error);
+        }
+    });
+}
+
+
+function PeticionTemasInteres(){
+    $.ajax({
+        url: "ajax/gustos.php",
+        dataType: "json",
+        success: function(respuesta){
+            console.log(respuesta.Temas);
+            if(respuesta.codigo == 1){
+                var parametros = "";
+                for(var i=0;i<(respuesta.Temas.length+1) ; i++){
+                    if(i==0){
+                        parametros ="Tamaño="+(respuesta.Temas.length+1)+"&";
+                    }else{
+                        parametros = parametros + "Tema"+(i-1)+"="+respuesta.Temas[i-1]+"&";
+                    }
+                }
+                console.log(parametros);
+                $.ajax({
+                    url: "ajax/BuscarImgTemas.php",
+                    data: parametros,
+                    method: "POST",
+                    dataType: "json",
+                    success: function(respuesta){
+                        console.log(respuesta);
+                        $("#contenidoTotal").html('<div class="columna" style="margin:3px;padding-top:24px;" id="CuerpoImgInicio"></div>');
+                        for (var i=1;i<respuesta.length;i++){
+                            $("#CuerpoImgInicio").append(
+                               `<a class="card" style="padding:0px; margin:0px; display: inline-block; position:relative;" id="${respuesta[i].id}">
+                                   <img class="card-img-top" src="${respuesta[i].urlImagen}">
+                                   <div class="card-body row">
+                                       <h4 class="card-text letraNav">${respuesta[i].Nombre}</h4>
+                                       <button type="button" class="btn btn-light letraNav rounded-circle btn-pin" style=" padding:6px; position: relative;left:90px; width: 24px;height: 24px;" >
+                                           <i class="fas fa-ellipsis-h" style="align-content: center"></i> 
+                                       </button>
+                                   </div> 
+                               </a>
+                               <button type="button" style="float: right; position:relative; display:none;" class="btn btn-danger evento"  id="btn-${respuesta[i].id}">Danger</button>`
+                            );
+                       } 
+                        
+                    },
+                    error: function(error){
+                        console.log(error);
+                    }
+                });
+                
+            }
+        },
+        error: function(error){
+            console.log(error);
+        }
+    });
 }

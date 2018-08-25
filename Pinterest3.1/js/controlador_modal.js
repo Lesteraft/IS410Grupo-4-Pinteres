@@ -52,7 +52,8 @@ $("#btn-AgregarPin").click(function(){
 									</button>
 								</div> 
 							</a>
-							<button type="button" style="float: right; position:relative; display:none;" class="btn btn-danger evento"  id="">Danger</button>`)
+							<button type="button" style="float: right; position:relative; display:none;" class="btn btn-danger evento"  id="">Danger</button>`);
+						window.location = "Inicio.php";
 					},
 					error: function(error){
 						console.log(error);

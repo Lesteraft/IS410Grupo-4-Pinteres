@@ -2,7 +2,7 @@
     session_start();
     
     $_SESSION["PantallaAnterior"] = "Explorar";
-    $archivo = fopen("../data/inicionuevo.json","r");
+    $archivo = fopen("../data/inicio.json","r");
     $linea="";
     $imagenes=array();
     
