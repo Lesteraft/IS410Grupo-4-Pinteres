@@ -27,28 +27,26 @@ function mostrarImagenes(){
 	});
 }
 
-/*function EntradaMouse(cantidaCard) {
-    console.log(cantidaCard);
-
-    for (let i = 1; i <= cantidaCard; i++) {
-        
-        $("#"+i).mouseenter(function(){
-            $("#"+i).css("background-color","#F2F2F2",); 
-            $("#"+i+" img").css("-webkit-filter","brightness(50%)","webkit-filter",
+function eventoEntradaMouse(){
+    $(".card").mouseenter(function(){
+        //console.log($(this).attr("id"));
+        $("#"+$(this).attr("id")).css("background-color","#F2F2F2"); 
+        $("#"+$(this).attr("id")+" img").css("-webkit-filter","brightness(50%)","webkit-filter",
             "brightness(50%)");
-            $("#btn-"+i).css({"display": 'block'});//
-            /*document.getElementById("#"+i).innerHTML += "<a type='button' class='btn btn-danger'>Danger</a>";
+    });
 
-        });
+    $(".card").click(function () {
+        var id =$(this).attr("id");
+        MostrarPinFiltros(id);
+    });
 
-        $("#"+i).mouseleave(function(){
-            $("#"+i).css("background-color","transparent");
-            $("#"+i+" img").css("-webkit-filter","brightness(100%)","webkit-filter",
-            "brightness(100%)");
-        });    
-    }
-    
-}*/
+    $(".card").mouseleave(function(){
+        $("#"+$(this).attr("id")).css("background-color","transparent");
+        $("#"+$(this).attr("id")+" img").css("-webkit-filter","brightness(100%)","webkit-filter",
+        "brightness(100%)");
+    });
+
+}
 
 $("#btn-cerrar-sesion").click(function(){
     console.log("se cerrará la sesion");
@@ -80,19 +78,6 @@ $(document).ready(function(){
             break;
        }
    }
-
-    $(".card").mouseenter(function(){
-        //console.log($(this).attr("id"));
-        $("#"+$(this).attr("id")).css("background-color","#F2F2F2"); 
-        $("#"+$(this).attr("id")+" img").css("-webkit-filter","brightness(50%)","webkit-filter",
-            "brightness(50%)");
-    });
-
-    $(".card").mouseleave(function(){
-        $("#"+$(this).attr("id")).css("background-color","transparent");
-        $("#"+$(this).attr("id")+" img").css("-webkit-filter","brightness(100%)","webkit-filter",
-        "brightness(100%)");
-    });
 
     $("#frm-subirImagen").bind("submit", function(){
         var frmData = new FormData;
@@ -153,7 +138,8 @@ function mostrarImagenesExplorar(){
                             </button>
                         </div>
                         <button type="button" class="btn btn-danger" style="display:none">Danger</button>
-                    </a>`
+                    </a>
+                    <script>eventoEntradaMouse();</script>`
                  );
             }  
         },
@@ -336,7 +322,10 @@ function PeticionTemasInteres(){
                                        </button>
                                    </div> 
                                </a>
-                               <button type="button" style="float: right; position:relative; display:none;" class="btn btn-danger evento"  id="btn-${respuesta[i].id}">Danger</button>`
+                               <button type="button" style="float: right; position:relative; display:none;" class="btn btn-danger evento"  id="btn-${respuesta[i].id}">Danger</button>
+                               <script>
+                                eventoEntradaMouse();
+                               </script>`
                             );
                        } 
                         
@@ -354,10 +343,10 @@ function PeticionTemasInteres(){
     });
 }
 
-function MostrarPinFiltros(){
+function MostrarPinFiltros(id){
 
     $("#contenidoTotal").html("");
-    var parametro = "id=" +$(".card").attr('id');
+    var parametro = "id=" +id;
 	$.ajax({
 
         url:"ajax/buscarImagen.php",
@@ -367,14 +356,20 @@ function MostrarPinFiltros(){
         success:function(respuesta){
 			console.log(respuesta);
 			$("#contenidoTotal").append(
-                `<div id="main">
-                    <img class="card-img-top" src="${respuesta[i].urlImagen}" id="${respuesta[i].i}"><br>
-                    <h4 class="card-text letraNav">${respuesta[i].Nombre}</h4><br>
-                    <hr>
-                    <canvas id="canvas" width="400px" height="300"></canvas>
-                    <hr>
-                </div>
+                `<div style="columns: 2; text-align: center;">
+                    <div style= "">
+                    <img style="width:300px;" class="card-img-top" src="${respuesta.urlImagen}" id="${respuesta.id}">
+                    <br>
+                    <h4 class="card-text letraNav">${respuesta.Nombre}</h4>
+                    </div>
+                    <div style= "">
+                    <canvas id="canvas" width="800" height="600" style="background-color: #000;"></canvas>
+                    <div>
+                    <br>
+                </div><br>
                 <div class="btn-group" role="group" aria-label="Basic example">
+
+                    <button id="btn-filtar" type="button" class="btn btn-secondary">Poner Filtro</button>
                     <button id="btn-bw" type="button" class="btn btn-secondary">Blanco y Negro</button>
                     <button id="btn-invert" type="button" class="btn btn-secondary">Invertir</button>
                     <button id="btn-sepia" type="button" class="btn btn-secondary">Sepia</button>
@@ -385,153 +380,151 @@ function MostrarPinFiltros(){
      
                 <script>
 
-                    window.onload = function() {
+                    $("#btn-filtar").click(function(){
                         app.loadPicture();
-                        $("#btn-bw").click(function(){
-                            app.filters.bw();
-                        });
+                    });
 
-                        $("#btn-invert").click(function(){
-                            app.filters.invert();
-                        });
+                    $("#btn-bw").click(function(){
+                        app.filters.bw();
+                    });
 
-                        $("#btn-sepia").click(function(){
-                            app.filters.sepia();
-                        });
-                        $("#btn-contrast").click(function(){
-                            app.filters.contrast();
-                        });
+                    $("#btn-invert").click(function(){
+                        app.filters.invert();
+                    });
 
-                        $("#btn-save").click(function(){
-                            app.save();
-                        });
+                    $("#btn-sepia").click(function(){
+                        app.filters.sepia();
+                    });
+
+                    $("#btn-contrast").click(function(){
+                        app.filters.contrast();
+                    });
+
+                    $("#btn-save").click(function(){
+                        app.save();
+                    });
+
+                    var app = ( function () {
+                        var canvas = document.getElementById( 'canvas' ),
+                        context = canvas.getContext( '2d' ),
+    
+                    // API
+                    public = {};
+    
+                    public.loadPicture = function () {
+                        var imageObj = new Image();
+                        imageObj.src ="${respuesta.urlImagen}";
+    
+                        imageObj.onload = function () {
+                            context.drawImage( imageObj, 50, 50 );
+                        }
                     };
-
-                        var app = ( function () {
-                            var canvas = document.getElementById( 'canvas' ),
-                            context = canvas.getContext( '2d' ),
-        
-                        // API
-                        public = {};
-        
-                        public.loadPicture = function () {
-                            var imageObj = new Image();
-                            imageObj.src = ${respuesta[i].urlImagen};
-        
-                            imageObj.onload = function () {
-                                context.drawImage( imageObj, 0, 0 );
-                            }
-                        };
-        
-                        public.getImgData = function () {
-                            return context.getImageData( 0, 0, canvas.width, canvas.height );
-                        };
-        
-                        public.filters = {};
-        
-                        public.filters.bw = function () {
-                            var imageData = app.getImgData(),
-                                pixels = imageData.data,
-                                numPixels = imageData.width * imageData.height;
-        
-                            for ( var i = 0; i < numPixels; i++ ) {
-                                var r = pixels[ i * 4 ];
-                                var g = pixels[ i * 4 + 1 ];
-                                var b = pixels[ i * 4 + 2 ];
-        
-                                var grey = ( r + g + b ) / 3;
-        
-                                pixels[ i * 4 ] = grey;
-                                pixels[ i * 4 + 1 ] = grey;
-                                pixels[ i * 4 + 2 ] = grey;
-                            }
-        
-                            context.putImageData( imageData, 0, 0 );
-                        };
-                        
-        
-                        public.filters.invert = function () {
-                            var imageData = app.getImgData(),
-                                pixels = imageData.data,
-                                numPixels = imageData.width * imageData.height;
-        
-                            for ( var i = 0; i < numPixels; i++ ) {
-                                var r = pixels[ i * 4 ];
-                                var g = pixels[ i * 4 + 1 ];
-                                var b = pixels[ i * 4 + 2 ];
-        
-                                pixels[ i * 4 ] = 255 - r;
-                                pixels[ i * 4 + 1 ] = 255 - g;
-                                pixels[ i * 4 + 2 ] = 255 - b;
-                            }
-        
-                            context.putImageData( imageData, 0, 0 );
-                        };
-        
-                        public.filters.sepia = function () {
-                            var imageData = app.getImgData(),
-                                pixels = imageData.data,
-                                numPixels = imageData.width * imageData.height;
-        
-                            for ( var i = 0; i < numPixels; i++ ) {
-                                var r = pixels[ i * 4 ];
-                                var g = pixels[ i * 4 + 1 ];
-                                var b = pixels[ i * 4 + 2 ];
-        
-                                pixels[ i * 4 ] = 255 - r;
-                                pixels[ i * 4 + 1 ] = 255 - g;
-                                pixels[ i * 4 + 2 ] = 255 - b;
-        
-                                pixels[ i * 4 ] = ( r * .393 ) + ( g *.769 ) + ( b * .189 );
-                                pixels[ i * 4 + 1 ] = ( r * .349 ) + ( g *.686 ) + ( b * .168 );
-                                pixels[ i * 4 + 2 ] = ( r * .272 ) + ( g *.534 ) + ( b * .131 );
-                            }
-        
-                            context.putImageData( imageData, 0, 0 );
-                        };
-        
-                        public.filters.contrast = function ( contrast ) {
-                            var imageData = app.getImgData(),
-                                pixels = imageData.data,
-                                numPixels = imageData.width * imageData.height,
-                                factor;
-        
-                            contrast || ( contrast = 100 ); // Default value
-        
-                            factor = ( 259 * ( contrast + 255 ) ) / ( 255 * ( 259 - contrast ) );
-        
-                            for ( var i = 0; i < numPixels; i++ ) {
-                                var r = pixels[ i * 4 ];
-                                var g = pixels[ i * 4 + 1 ];
-                                var b = pixels[ i * 4 + 2 ];
-        
-                                pixels[ i * 4 ] = factor * ( r - 128 ) + 128;
-                                pixels[ i * 4 + 1 ] = factor * ( g - 128 ) + 128;
-                                pixels[ i * 4 + 2 ] = factor * ( b - 128 ) + 128;
-                            }
-        
-                            context.putImageData( imageData, 0, 0 );
-                        };
-        
-        
-                        public.save = function () {
-                            var link = window.document.createElement( 'a' ),
-                                url = canvas.toDataURL(),
-                                filename = 'screenshot.jpg';
-        
-                            link.setAttribute( 'href', url );
-                            link.setAttribute( 'download', filename );
-                            link.style.visibility = 'hidden';
-                            window.document.body.appendChild( link );
-                            link.click();
-                            window.document.body.removeChild( link );
-                        };
-        
-        
-                        return public;
-                    } () );
-        
-        
+    
+                    public.getImgData = function () {
+                        return context.getImageData( 0, 0, canvas.width, canvas.height );
+                    };
+    
+                    public.filters = {};
+    
+                    public.filters.bw = function () {
+                        var imageData = app.getImgData(),
+                            pixels = imageData.data,
+                            numPixels = imageData.width * imageData.height;
+    
+                        for ( var i = 0; i < numPixels; i++ ) {
+                            var r = pixels[ i * 4 ];
+                            var g = pixels[ i * 4 + 1 ];
+                            var b = pixels[ i * 4 + 2 ];
+    
+                            var grey = ( r + g + b ) / 3;
+    
+                            pixels[ i * 4 ] = grey;
+                            pixels[ i * 4 + 1 ] = grey;
+                            pixels[ i * 4 + 2 ] = grey;
+                        }
+    
+                        context.putImageData( imageData, 0, 0 );
+                    };
+                    
+    
+                    public.filters.invert = function () {
+                        var imageData = app.getImgData(),
+                            pixels = imageData.data,
+                            numPixels = imageData.width * imageData.height;
+    
+                        for ( var i = 0; i < numPixels; i++ ) {
+                            var r = pixels[ i * 4 ];
+                            var g = pixels[ i * 4 + 1 ];
+                            var b = pixels[ i * 4 + 2 ];
+    
+                            pixels[ i * 4 ] = 255 - r;
+                            pixels[ i * 4 + 1 ] = 255 - g;
+                            pixels[ i * 4 + 2 ] = 255 - b;
+                        }
+    
+                        context.putImageData( imageData, 0, 0 );
+                    };
+    
+                    public.filters.sepia = function () {
+                        var imageData = app.getImgData(),
+                            pixels = imageData.data,
+                            numPixels = imageData.width * imageData.height;
+    
+                        for ( var i = 0; i < numPixels; i++ ) {
+                            var r = pixels[ i * 4 ];
+                            var g = pixels[ i * 4 + 1 ];
+                            var b = pixels[ i * 4 + 2 ];
+    
+                            pixels[ i * 4 ] = 255 - r;
+                            pixels[ i * 4 + 1 ] = 255 - g;
+                            pixels[ i * 4 + 2 ] = 255 - b;
+    
+                            pixels[ i * 4 ] = ( r * .393 ) + ( g *.769 ) + ( b * .189 );
+                            pixels[ i * 4 + 1 ] = ( r * .349 ) + ( g *.686 ) + ( b * .168 );
+                            pixels[ i * 4 + 2 ] = ( r * .272 ) + ( g *.534 ) + ( b * .131 );
+                        }
+    
+                        context.putImageData( imageData, 0, 0 );
+                    };
+    
+                    public.filters.contrast = function ( contrast ) {
+                        var imageData = app.getImgData(),
+                            pixels = imageData.data,
+                            numPixels = imageData.width * imageData.height,
+                            factor;
+    
+                        contrast || ( contrast = 100 ); // Default value
+    
+                        factor = ( 259 * ( contrast + 255 ) ) / ( 255 * ( 259 - contrast ) );
+    
+                        for ( var i = 0; i < numPixels; i++ ) {
+                            var r = pixels[ i * 4 ];
+                            var g = pixels[ i * 4 + 1 ];
+                            var b = pixels[ i * 4 + 2 ];
+    
+                            pixels[ i * 4 ] = factor * ( r - 128 ) + 128;
+                            pixels[ i * 4 + 1 ] = factor * ( g - 128 ) + 128;
+                            pixels[ i * 4 + 2 ] = factor * ( b - 128 ) + 128;
+                        }
+    
+                        context.putImageData( imageData, 0, 0 );
+                    };
+    
+    
+                    public.save = function () {
+                        var link = window.document.createElement( 'a' ),
+                            url = canvas.toDataURL(),
+                            filename = '${respuesta.urlImagen}';
+    
+                        link.setAttribute( 'href', url );
+                        link.setAttribute( 'download', filename );
+                        link.style.visibility = 'hidden';
+                        window.document.body.appendChild( link );
+                        link.click();
+                        window.document.body.removeChild( link );
+                    };
+                    return public;
+                    }());
                 </script>`
 			);
 			
