@@ -36,7 +36,7 @@ $("#btn-AgregarPin").click(function(){
 				nombreImgenUltima = respuesta.NombreImagenSubida;
 				$.ajax({
 					url: "ajax/subImagenArchivoJson.php",
-					data: "Nombre="+$("#txt-NombreImagenPin").val()+"&Descripcion="+$("#txt-descripcionPin").val()+"&urlImagen=img/PinImg/"+nombreImgenUltima+"&"+$('input[name="chk-tema[]"]:checked').serialize(),
+					data: "id="+$("#txt-NombreImagenPin").val()+"&Nombre="+$("#txt-NombreImagenPin").val()+"&Descripcion="+$("#txt-descripcionPin").val()+"&urlImagen=img/PinImg/"+nombreImgenUltima+"&"+$('input[name="chk-tema[]"]:checked').serialize(),
 					dataType: "json",
 					method: "POST",
 					success: function(respuesta){

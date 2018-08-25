@@ -1,6 +1,6 @@
 
 function mostrarImagenes(){
-	$("#contenidoTotal").html('<div class="columna" style="margin:5px;padding-top:24px; max-width: 100%" id="CuerpoImgInicio"></div>');
+	$("#contenidoTotal").html('<div class="columna" style="margin:5px;padding-top:24px;" id="CuerpoImgInicio"></div>');
 	$.ajax({
         url:"ajax/ImagenesInicio.php",
         dataType:"json",
@@ -327,7 +327,7 @@ function PeticionTemasInteres(){
                         $("#contenidoTotal").html('<div class="columna" style="margin:3px;padding-top:24px;" id="CuerpoImgInicio"></div>');
                         for (var i=1;i<respuesta.length;i++){
                             $("#CuerpoImgInicio").append(
-                               `<a class="card" style="padding:0px; margin:0px; display: inline-block; position:relative;" id="${respuesta[i].id}">
+                               `<a class="card" style="padding:8px; margin:3px; display: inline-block; position:relative;" id="${respuesta[i].id}">
                                    <img class="card-img-top" src="${respuesta[i].urlImagen}">
                                    <div class="card-body row">
                                        <h4 class="card-text letraNav">${respuesta[i].Nombre}</h4>
