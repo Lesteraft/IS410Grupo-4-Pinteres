@@ -1,0 +1,95 @@
+
+.btn-light{
+    font-size: 17px !important;
+}
+
+.tc {
+    box-sizing: border-box;
+}
+
+#nombreUsuario{
+    margin-top: 80px;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+#encabezadoFoto{
+    background-color: white;
+    margin-left: 186px;
+    margin-top: 70px;
+    cursor: pointer;
+}
+
+#encabezadoFoto:focus{
+    outline: none;
+    border-color: transparent;
+}
+
+#encabezadoInformacion h4{
+    margin-left: 150px;
+}
+
+#encabezadoInformacion button{
+    color: rgb(204, 204, 204) !important;
+}
+
+#InformacionUsuario{
+    box-sizing: border-box;
+    width: 350px;
+    padding: 20px 58px;
+    margin-left: 50px;
+}
+
+#InformacionUsuario a{
+    color: rgb(116, 116, 116);
+    font-weight: bold;
+}
+
+#InformacionUsuario a:hover{
+    cursor: pointer;
+}
+
+button{
+    font-weight: bold !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+#crearTablero{
+    padding:45px 62px; 
+    margin:3px; 
+    display: inline-block; 
+    position:relative;
+    background-color: rgb(235, 235, 235);
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#crearTablero button{
+    color: white !important;
+    font-size: 20px;
+}
+
+#txt-crearTablero{
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+}
+
+#btn-actualizar-ahora{
+    color: white !important;
+}
+
+button .fas{
+    color: white !important;
+}
+
+#modalImagen{
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#encabezadoInformacion{
+    width: 450px;
+}

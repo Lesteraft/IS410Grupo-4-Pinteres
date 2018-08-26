@@ -1,0 +1,83 @@
+body{
+    overflow-y: scroll;
+    background-image: url(../img/acerca-de-pinterest/homepage_template_mobile_bkgd.jpg);
+    width: 100% !important;
+    height: 100%;
+    background-size: cover;
+}
+
+.bg-light {
+    background-color: #ffffff!important;
+}
+
+.navbar{
+    min-width: 450px;;
+}
+
+.navbar-nav{
+    margin-left: auto !important;
+    margin-right: 100px !important;
+}
+
+.navbar-brand{
+    margin-left: 100px;
+}
+
+#contenido{
+    vertical-align: middle; 
+    padding-top: 250PX;
+    min-width: 500px;
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    margin-left: 100px;
+}
+
+#texto-pag{
+    max-width: 500px;
+    line-height: 1;
+    word-spacing: 2px;
+    font-family: "NeueHaasGrot-Pinterest-DispRound-75-Bold",sans-serif,helvetica;
+}
+
+button{
+    cursor: pointer;
+    position: fixed;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px 15px;
+    border-radius: 4px;
+    border-width: 0.8px;
+    border-color: rgb(209,209,209);
+    margin-top: 0px;
+    background-color: rgb(189, 8, 28);
+    color: #fff;
+    position: relative;
+    border-color: transparent;
+}
+
+
+#fondo{
+    padding-bottom: 250px;
+}
+
+#footer{
+    position: absolute;
+    background-color: #DDD7D3;
+    height: 60%;
+}
+
+.listas-bonitas{
+    list-style: none; 
+    padding-left: 0px;
+    font-size: 13px;
+}
+
+.listas-bonitas a{
+    color: rgb(46, 45, 45);
+}
+
+#barra-navegacion{
+    top:0%; 
+    
+}

@@ -1,0 +1,53 @@
+.modal-header{
+    justify-content: center;
+}
+
+.close {
+    right: 0;
+    top: 0;
+    position: absolute;
+    margin: 0px !important;
+    padding: 8px !important;
+}
+
+.modal-dialog{
+    max-width: 57%;
+    max-height: 85%; 
+}
+
+.modal-body{
+    height: 100%; 
+    padding-bottom: 24px; 
+    padding: 24px;
+    display: inline-flex;
+    justify-content: center;
+    flex: 1 1 auto;
+}
+
+.imagenSub{
+    width: 236px; 
+    border: 2px dashed rgb(142, 142, 142); 
+    border-radius: 10px;     
+    cursor: pointer; 
+    height: 371px; 
+    margin-left: auto;
+    margin-right: auto; 
+    outline: none;     
+    padding: 0px;  
+    float: left;
+    display: flex;
+}
+
+.fade{
+   
+}
+
+.Inputmodal{
+    width: 360px;
+    border-radius: 6px;
+    border-color: #8e8e8e;
+}
+
+.modal-footer{
+   justify-content: left;
+}
