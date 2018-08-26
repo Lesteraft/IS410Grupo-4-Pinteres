@@ -356,20 +356,17 @@ function MostrarPinFiltros(id){
         success:function(respuesta){
 			//console.log(respuesta);
 			$("#contenidoTotal").append(
-                `<div style="columns: 2; text-align: center;">
-                    <div style= "">
-                    <img style="width:300px;" class="card-img-top" src="${respuesta.urlImagen}" id="${respuesta.id}">
-                    <br>
-                    <h4 class="card-text letraNav">${respuesta.Nombre}</h4>
-                    </div>
-                    <div style= "">
-                    <canvas id="canvas" width="800" height="600" style="background-color: #000;"></canvas>
-                    <div>
-                    <br>
-                </div><br>
+                `<div style=" text-align: center; padding-top: 20px">
+                <h4 class="card-text letraNav">${respuesta.Nombre}</h4>
+                <br>
+                <hr>
+                <br>
+                <canvas id="canvas" width="600" height="400" style="background-color: #000;"></canvas>
+                <br>
+                <br>
                 <div class="btn-group" role="group" aria-label="Basic example">
 
-                    <button id="btn-filtar" type="button" class="btn btn-secondary">Poner Filtro</button>
+                    <button id="btn-filtar" type="button" class="btn btn-secondary">Original</button>
                     <button id="btn-bw" type="button" class="btn btn-secondary">Blanco y Negro</button>
                     <button id="btn-invert" type="button" class="btn btn-secondary">Invertir</button>
                     <button id="btn-sepia" type="button" class="btn btn-secondary">Sepia</button>
@@ -377,8 +374,11 @@ function MostrarPinFiltros(id){
                     <button id="btn-save" type="button" class="btn btn-secondary">Guardar</button>
                     
                 </div>
+                </div>
      
                 <script>
+
+                    $(document).ready(function(){app.loadPicture();});
 
                     $("#btn-filtar").click(function(){
                         app.loadPicture();
@@ -414,8 +414,17 @@ function MostrarPinFiltros(id){
                     public.loadPicture = function () {
                         var imageObj = new Image();
                         imageObj.src ="${respuesta.urlImagen}";
-                        width= imageObj.width/3;
-                        height= imageObj.height/3;
+                        
+                        if(imageObj.width <= canvas.width && imageObj.height<=canvas.height){
+                            width= imageObj.width;
+                            height= imageObj.height;
+                        }else if((imageObj.width>canvas.width && imageObj.height>canvas.height)&&(imageObj.width<=canvas.width+15 && imageObj.height<=canvas.height+15)) {
+                            width= imageObj.width-16;
+                            height= imageObj.height-16;
+                        }else if(imageObj.width>canvas.width+16 && imageObj.height>canvas.height+16){
+                            width= (imageObj.width/4);
+                            height= (imageObj.height/4);
+                        }
     
                         imageObj.onload = function () {
                             context.drawImage( imageObj, 0, 0, width,height );
