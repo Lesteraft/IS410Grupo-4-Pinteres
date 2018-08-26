@@ -354,7 +354,7 @@ function MostrarPinFiltros(id){
         data:parametro,
         dataType:"json",
         success:function(respuesta){
-			console.log(respuesta);
+			//console.log(respuesta);
 			$("#contenidoTotal").append(
                 `<div style="columns: 2; text-align: center;">
                     <div style= "">
@@ -414,9 +414,11 @@ function MostrarPinFiltros(id){
                     public.loadPicture = function () {
                         var imageObj = new Image();
                         imageObj.src ="${respuesta.urlImagen}";
+                        width= imageObj.width/3;
+                        height= imageObj.height/3;
     
                         imageObj.onload = function () {
-                            context.drawImage( imageObj, 50, 50 );
+                            context.drawImage( imageObj, 0, 0, width,height );
                         }
                     };
     
