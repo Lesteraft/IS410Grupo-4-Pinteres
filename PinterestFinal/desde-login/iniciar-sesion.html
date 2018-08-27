@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pinterest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../img/login/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/iniciar-sesion.css" />
+</head>
+<body>
+    <div id="fondo">
+        <div id="formulario-login1">
+            <div>
+                <img id="imagen01" src="../img/login/favicon.png">
+            </div>
+            <div id="titulo-form">
+                <label>Inicia sesión para ver más</label>
+            </div>
+            <div id="subtitulo01">
+                <label>Accede a las mejores ideas de Pinterest con una cuenta gratuita</label>
+            </div>
+            <div id="form-personal" >
+                <div>
+                    <div>
+                        <input class="form-control" id="txt-email" type="email"  placeholder="Correo Electrónico">
+                        <div class="invalid-feedback" style="margin-top: -10px;">
+                            ups! tenemos un problema, recuerda llenar este campo y recuerde poner su correo electrónico correspondiente.
+                        </div>
+                    </div>
+                    <div>
+                        <input class="form-control" id="txt-password" type="password" placeholder="Crea una contraseña">
+                        <div class="invalid-feedback" style="margin-top: -10px;">
+                            La contraseña es demasiado corta. Debe tener 6 caracteres o más.
+                        </div>
+                    </div>
+                </div>
+                <div id="botones" >
+                    <div>
+                        <button id="btn-cont" type="button">Continuar</button>
+                    </div>
+                    <div style="text-align: center; font-size: 15px; font-weight: bold; color: rgb(100,100,100); overflow: hidden;">
+                        <p style="margin-top: 5px; margin-bottom: 10px">o</p> 
+                    </div>
+                    <div>
+                        <button id="botones-inicio-sesión-fb" type="button"> <img src="../img/login/facebook-logo-112.png" style="float: left;"> <span>Continuar con Facebook</span></button>
+                    </div>
+                    <div>
+                        <button id="btn-inicio-sesion-google" type="button"> <img src="../img/login/google.png" style="float: left;"> Continuar con Google</button>
+                    </div>
+                </div>
+            </div>
+            <div id="extra">
+                <div>
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+                <div style="padding-left: 80px; padding-right: 80px;">
+                    <hr>
+                </div>
+                <div style="font-size: 12px">
+                    ¿Aún no estas en Pinterest? <a href="../index.php">Registrate</a>
+                </div>
+            </div>
+        </div> 
+    </div>
+
+    <script src="../jquery/jquery.min.js"></script>
+    <script src="../js/controlador-login.js"></script>
+</body>
+</html>
